@@ -1,0 +1,406 @@
+﻿Sehir,Sira,Sektor,Skor
+Adana,1,Sağlık,85.56887425400001
+Adana,2,Sosyal Hizmetler,82.701041976
+Adana,3,Çevre / Atık,76.125975987
+Adana,4,Ulaşım,75.477903141
+Adana,5,Turizm / Otelcilik,47.054094013
+Adıyaman,1,Sağlık,87.102337405
+Adıyaman,2,Sosyal Hizmetler,86.816747601
+Adıyaman,3,Çevre / Atık,82.938547675
+Adıyaman,4,Ulaşım,72.179310826
+Adıyaman,5,Enerji,45.043703923
+Afyonkarahisar,1,Sağlık,79.735230594
+Afyonkarahisar,2,Sosyal Hizmetler,74.284392376
+Afyonkarahisar,3,Ulaşım,69.103198419
+Afyonkarahisar,4,Çevre / Atık,67.04248620199999
+Afyonkarahisar,5,Lojistik,52.43923404700001
+Ağrı,1,Sağlık,89.09786120000001
+Ağrı,2,Çevre / Atık,86.50185908899999
+Ağrı,3,Sosyal Hizmetler,86.249072904
+Ağrı,4,Ulaşım,54.485837229
+Ağrı,5,Tarım ve Hayvancılık,36.220972513
+Aksaray,1,Sağlık,78.036341492
+Aksaray,2,Ulaşım,75.4357614
+Aksaray,3,Sosyal Hizmetler,74.071789687
+Aksaray,4,Çevre / Atık,66.295563356
+Aksaray,5,Enerji,51.943344968000005
+Amasya,1,Telekom,65.211126038
+Amasya,2,Kültür & Sanat,64.667398444
+Amasya,3,Eğitim Kurumları,63.965062716999995
+Amasya,4,Lojistik,61.006298066999996
+Amasya,5,Turizm / Otelcilik,60.662260077999996
+Ankara,1,Sağlık,84.547212011
+Ankara,2,Ulaşım,82.20591811
+Ankara,3,Sosyal Hizmetler,81.19479389600001
+Ankara,4,Çevre / Atık,74.69950451700001
+Ankara,5,Enerji,63.817487701
+Antalya,1,Ulaşım,83.65820099800001
+Antalya,2,Sağlık,83.19366614299999
+Antalya,3,Sosyal Hizmetler,79.70551388399998
+Antalya,4,Çevre / Atık,72.308670186
+Antalya,5,Turizm / Otelcilik,60.39390370200001
+Ardahan,1,Çevre / Atık,83.041489467
+Ardahan,2,Gıda İşleme,63.736593529
+Ardahan,3,Otomotiv,61.712949436999985
+Ardahan,4,Lojistik,57.78981703699999
+Ardahan,5,Sanayi / Üretim,57.645651318
+Artvin,1,Lojistik,71.779948723
+Artvin,2,Sağlık,55.723013803
+Artvin,3,Turizm / Otelcilik,48.540359721
+Artvin,4,Telekom,47.971129719000004
+Artvin,5,Kültür & Sanat,47.51628384400001
+Aydın,1,Sağlık,79.912935121
+Aydın,2,Ulaşım,78.388346703
+Aydın,3,Sosyal Hizmetler,76.007406503
+Aydın,4,Çevre / Atık,67.860812673
+Aydın,5,Turizm / Otelcilik,60.54770046
+Balıkesir,1,Sağlık,80.37380860799999
+Balıkesir,2,Ulaşım,78.86762484200001
+Balıkesir,3,Sosyal Hizmetler,76.249980865
+Balıkesir,4,Çevre / Atık,68.80961435100001
+Balıkesir,5,Turizm / Otelcilik,59.682926355
+Bartın,1,Lojistik,72.292306584
+Bartın,2,Sağlık,55.459019997000006
+Bartın,3,Enerji,53.058227589999994
+Bartın,4,Turizm / Otelcilik,51.89619630100001
+Bartın,5,Sosyal Hizmetler,51.084788468999996
+Batman,1,Sağlık,83.43746394900002
+Batman,2,Sosyal Hizmetler,80.79615081
+Batman,3,Ulaşım,71.76000925700001
+Batman,4,Çevre / Atık,70.23262765999999
+Batman,5,Turizm / Otelcilik,46.545734153
+Bayburt,1,Lojistik,75.5733637
+Bayburt,2,Gıda İşleme,71.531769707
+Bayburt,3,Tarım ve Hayvancılık,64.601812121
+Bayburt,4,Enerji,62.24570335900002
+Bayburt,5,Otomotiv,61.536711487999995
+Bilecik,1,Lojistik,67.447710923
+Bilecik,2,Enerji,64.150705238
+Bilecik,3,Kültür & Sanat,57.898176334999995
+Bilecik,4,Sağlık,57.336711771000004
+Bilecik,5,Turizm / Otelcilik,57.273555866
+Bingöl,1,Sağlık,76.854603223
+Bingöl,2,Çevre / Atık,74.486115732
+Bingöl,3,Sosyal Hizmetler,72.99870953499999
+Bingöl,4,Ulaşım,66.067249401
+Bingöl,5,Enerji,49.959533748
+Bitlis,1,Sağlık,81.64958388499998
+Bitlis,2,Sosyal Hizmetler,78.560697257
+Bitlis,3,Çevre / Atık,74.677867271
+Bitlis,4,Ulaşım,64.78474274099999
+Bitlis,5,Lojistik,44.767098294
+Bolu,1,Sağlık,67.098231302
+Bolu,2,Ulaşım,62.557112766
+Bolu,3,Sosyal Hizmetler,61.489632265
+Bolu,4,Lojistik,57.67331257199999
+Bolu,5,Enerji,57.190171492999994
+Burdur,1,Sağlık,69.142700107
+Burdur,2,Sosyal Hizmetler,63.540393425
+Burdur,3,Lojistik,63.347766457999995
+Burdur,4,Ulaşım,60.176558807
+Burdur,5,Enerji,54.47321036499999
+Bursa,1,Sağlık,83.800144583
+Bursa,2,Ulaşım,80.98898306699999
+Bursa,3,Sosyal Hizmetler,80.077394051
+Bursa,4,Çevre / Atık,73.45842449400001
+Bursa,5,Enerji,67.837501351
+Çanakkale,1,Ulaşım,75.44211424699999
+Çanakkale,2,Sağlık,72.433909469
+Çanakkale,3,Sosyal Hizmetler,68.012320885
+Çanakkale,4,Çevre / Atık,61.057717677
+Çanakkale,5,Turizm / Otelcilik,59.80949170400001
+Çankırı,1,Lojistik,66.83399342999999
+Çankırı,2,Sağlık,65.560035177
+Çankırı,3,Tarım ve Hayvancılık,62.281465168000004
+Çankırı,4,Enerji,61.056040685
+Çankırı,5,Gıda İşleme,60.43749613
+Çorum,1,Sağlık,78.88317762499999
+Çorum,2,Sosyal Hizmetler,74.844612683
+Çorum,3,Ulaşım,67.140019958
+Çorum,4,Çevre / Atık,61.111587748000005
+Çorum,5,Tarım ve Hayvancılık,54.54237954
+Denizli,1,Sağlık,81.183154044
+Denizli,2,Sosyal Hizmetler,77.287503687
+Denizli,3,Ulaşım,75.237815405
+Denizli,4,Çevre / Atık,67.96046177699999
+Denizli,5,Lojistik,61.559556361
+Diyarbakır,1,Sağlık,86.41097568400001
+Diyarbakır,2,Sosyal Hizmetler,83.393489061
+Diyarbakır,3,Çevre / Atık,76.05806537100001
+Diyarbakır,4,Ulaşım,73.504932117
+Diyarbakır,5,Enerji,45.781769866999994
+Düzce,1,Ulaşım,77.32527328600001
+Düzce,2,Sağlık,75.318404782
+Düzce,3,Sosyal Hizmetler,73.966398819
+Düzce,4,Çevre / Atık,71.39727919399999
+Düzce,5,Enerji,56.278443839000005
+Edirne,1,Sağlık,70.26325447
+Edirne,2,Sosyal Hizmetler,68.342958559
+Edirne,3,Ulaşım,67.66606030300001
+Edirne,4,Çevre / Atık,56.643408036
+Edirne,5,Lojistik,53.461759338
+Elazığ,1,Sağlık,80.59828683199999
+Elazığ,2,Sosyal Hizmetler,79.492072487
+Elazığ,3,Çevre / Atık,74.50625464800001
+Elazığ,4,Ulaşım,71.099611945
+Elazığ,5,Enerji,56.529809373000006
+Erzincan,1,Sağlık,67.874297649
+Erzincan,2,Sosyal Hizmetler,61.171612272
+Erzincan,3,Lojistik,59.359789168
+Erzincan,4,Enerji,55.74217854500001
+Erzincan,5,Ulaşım,53.160053829
+Erzurum,1,Sağlık,84.50775280100001
+Erzurum,2,Sosyal Hizmetler,81.241079078
+Erzurum,3,Çevre / Atık,77.878811584
+Erzurum,4,Ulaşım,66.9796011
+Erzurum,5,Enerji,43.931704739
+Eskişehir,1,Sağlık,78.00615103
+Eskişehir,2,Ulaşım,77.325482632
+Eskişehir,3,Sosyal Hizmetler,75.817248819
+Eskişehir,4,Enerji,68.100623978
+Eskişehir,5,Çevre / Atık,64.61068210399999
+Gaziantep,1,Sağlık,84.97502695099999
+Gaziantep,2,Sosyal Hizmetler,81.072781998
+Gaziantep,3,Ulaşım,75.504468358
+Gaziantep,4,Çevre / Atık,74.34447179799999
+Gaziantep,5,Enerji,56.87019333400001
+Giresun,1,Telekom,80.90981724900001
+Giresun,2,Eğitim Kurumları,80.69745107199999
+Giresun,3,Kültür & Sanat,78.447484451
+Giresun,4,Finans,72.03325483299999
+Giresun,5,Teknoloji / Yazılım,69.99960076
+Gümüşhane,1,Eğitim Kurumları,73.622363305
+Gümüşhane,2,Finans,69.528626731
+Gümüşhane,3,Telekom,68.023528659
+Gümüşhane,4,Lojistik,67.852735726
+Gümüşhane,5,Kültür & Sanat,67.082942301
+Hakkari,1,Sosyal Hizmetler,88.69129326999999
+Hakkari,2,Çevre / Atık,86.116228324
+Hakkari,3,Sağlık,84.235367859
+Hakkari,4,Ulaşım,77.13643515199999
+Hakkari,5,Enerji,37.59904792100001
+Hatay,1,Sağlık,88.417008554
+Hatay,2,Sosyal Hizmetler,85.734816748
+Hatay,3,Çevre / Atık,78.62069177699999
+Hatay,4,Ulaşım,67.075657523
+Hatay,5,Turizm / Otelcilik,40.304473065
+Iğdır,1,Çevre / Atık,89.77619311800001
+Iğdır,2,Sağlık,69.740454492
+Iğdır,3,Sosyal Hizmetler,65.264130325
+Iğdır,4,Ulaşım,64.93539909100001
+Iğdır,5,Lojistik,49.710536598
+Isparta,1,Sağlık,71.12752769400001
+Isparta,2,Sosyal Hizmetler,65.846976107
+Isparta,3,Ulaşım,64.046233929
+Isparta,4,Lojistik,59.074940100999996
+Isparta,5,Çevre / Atık,56.83683662900001
+İstanbul,1,Sağlık,87.89843051099999
+İstanbul,2,Sosyal Hizmetler,84.236122127
+İstanbul,3,Çevre / Atık,77.886904552
+İstanbul,4,Ulaşım,77.726179335
+İstanbul,5,Turizm / Otelcilik,48.919359994
+İzmir,1,Sağlık,84.431357699
+İzmir,2,Ulaşım,81.89426227299998
+İzmir,3,Sosyal Hizmetler,81.207403103
+İzmir,4,Çevre / Atık,74.713891826
+İzmir,5,Enerji,59.345604195
+Kahramanmaraş,1,Sağlık,85.007198071
+Kahramanmaraş,2,Sosyal Hizmetler,82.11073755
+Kahramanmaraş,3,Çevre / Atık,75.81459526900001
+Kahramanmaraş,4,Ulaşım,70.580181346
+Kahramanmaraş,5,Turizm / Otelcilik,44.2028664
+Karabük,1,Sağlık,63.303936488
+Karabük,2,Sosyal Hizmetler,59.75840961400001
+Karabük,3,Turizm / Otelcilik,49.519649703
+Karabük,4,Ulaşım,48.300191889000004
+Karabük,5,Konut & İnşaat,47.600961047000006
+Karaman,1,Lojistik,71.327827869
+Karaman,2,Tarım ve Hayvancılık,67.731446667
+Karaman,3,Gıda İşleme,64.885667094
+Karaman,4,Sağlık,63.783772322
+Karaman,5,Enerji,61.94656968500001
+Kars,1,Sağlık,79.32089818399999
+Kars,2,Çevre / Atık,78.82214129799999
+Kars,3,Sosyal Hizmetler,75.507541416
+Kars,4,Ulaşım,52.545788384000005
+Kars,5,Tarım ve Hayvancılık,48.642055362
+Kastamonu,1,Sağlık,69.446359397
+Kastamonu,2,Ulaşım,64.51585468799999
+Kastamonu,3,Sosyal Hizmetler,60.189905669
+Kastamonu,4,Lojistik,59.395666504
+Kastamonu,5,Turizm / Otelcilik,53.751299285
+Kayseri,1,Sağlık,83.10104101499999
+Kayseri,2,Sosyal Hizmetler,79.666808699
+Kayseri,3,Ulaşım,75.075265669
+Kayseri,4,Çevre / Atık,71.94536285199999
+Kayseri,5,Enerji,64.55443014100001
+Kırıkkale,1,Sosyal Hizmetler,70.27150777
+Kırıkkale,2,Sağlık,69.78343436099999
+Kırıkkale,3,Ulaşım,63.407113077
+Kırıkkale,4,Çevre / Atık,59.29159341400001
+Kırıkkale,5,Enerji,58.699503874
+Kırklareli,1,Sağlık,71.22623111099999
+Kırklareli,2,Sosyal Hizmetler,66.296165476
+Kırklareli,3,Ulaşım,64.15673637700002
+Kırklareli,4,Lojistik,62.181024207
+Kırklareli,5,Enerji,60.14746029500001
+Kırşehir,1,Tarım ve Hayvancılık,71.01876258200001
+Kırşehir,2,Sağlık,65.28749747999998
+Kırşehir,3,Gıda İşleme,63.548462675
+Kırşehir,4,Sosyal Hizmetler,62.315701334
+Kırşehir,5,Ulaşım,57.8645972
+Kilis,1,Çevre / Atık,82.83621460299999
+Kilis,2,Ulaşım,77.665350149
+Kilis,3,Sosyal Hizmetler,76.54994227099999
+Kilis,4,Sağlık,60.701250699
+Kilis,5,Enerji,55.789377072
+Kocaeli,1,Ulaşım,82.880807195
+Kocaeli,2,Sağlık,82.09861542200001
+Kocaeli,3,Sosyal Hizmetler,78.383853532
+Kocaeli,4,Çevre / Atık,70.874966752
+Kocaeli,5,Enerji,58.22924850800001
+Konya,1,Sağlık,84.218730313
+Konya,2,Sosyal Hizmetler,80.208684975
+Konya,3,Ulaşım,76.904656642
+Konya,4,Çevre / Atık,73.211135612
+Konya,5,Enerji,56.72975952000001
+Kütahya,1,Sağlık,78.36155220799999
+Kütahya,2,Sosyal Hizmetler,74.40053103400001
+Kütahya,3,Ulaşım,69.509939981
+Kütahya,4,Çevre / Atık,68.898156396
+Kütahya,5,Enerji,53.291520686000005
+Malatya,1,Sağlık,83.62200664899999
+Malatya,2,Sosyal Hizmetler,80.823043279
+Malatya,3,Çevre / Atık,73.525067418
+Malatya,4,Ulaşım,62.971396618
+Malatya,5,Enerji,50.527176641000004
+Manisa,1,Sağlık,81.77151762300001
+Manisa,2,Sosyal Hizmetler,77.38231221900001
+Manisa,3,Ulaşım,76.190876254
+Manisa,4,Çevre / Atık,70.12023817400001
+Manisa,5,Turizm / Otelcilik,52.704445437000004
+Mardin,1,Sağlık,85.14172975199999
+Mardin,2,Sosyal Hizmetler,83.25983587500001
+Mardin,3,Çevre / Atık,74.697432514
+Mardin,4,Ulaşım,74.43716520600002
+Mardin,5,Lojistik,50.64472489600001
+Mersin,1,Sağlık,83.956227597
+Mersin,2,Sosyal Hizmetler,80.78566964100001
+Mersin,3,Ulaşım,78.68468789900001
+Mersin,4,Çevre / Atık,73.437075051
+Mersin,5,Turizm / Otelcilik,54.61803147399999
+Muğla,1,Ulaşım,84.011728976
+Muğla,2,Sağlık,78.28072257999999
+Muğla,3,Sosyal Hizmetler,74.484624709
+Muğla,4,Çevre / Atık,66.446507459
+Muğla,5,Turizm / Otelcilik,60.54578888
+Muş,1,Sağlık,87.03170353399999
+Muş,2,Sosyal Hizmetler,85.51925442400001
+Muş,3,Çevre / Atık,82.59880023599999
+Muş,4,Ulaşım,60.97459203299999
+Muş,5,Tarım ve Hayvancılık,42.648256337
+Nevşehir,1,Sağlık,71.061217611
+Nevşehir,2,Sosyal Hizmetler,64.13760275199999
+Nevşehir,3,Lojistik,62.34409462899999
+Nevşehir,4,Ulaşım,61.215318876000005
+Nevşehir,5,Tarım ve Hayvancılık,58.411854149999996
+Niğde,1,Sağlık,74.994307306
+Niğde,2,Sosyal Hizmetler,70.456370676
+Niğde,3,Ulaşım,63.44567888
+Niğde,4,Çevre / Atık,59.04302474599999
+Niğde,5,Lojistik,54.63117395899999
+Ordu,1,Sağlık,79.49701475799999
+Ordu,2,Sosyal Hizmetler,75.486395875
+Ordu,3,Ulaşım,73.538182916
+Ordu,4,Çevre / Atık,70.162264841
+Ordu,5,Lojistik,52.999130822999994
+Osmaniye,1,Sağlık,77.73749079299999
+Osmaniye,2,Sosyal Hizmetler,72.90192208100001
+Osmaniye,3,Ulaşım,65.89579886599999
+Osmaniye,4,Çevre / Atık,62.186095836999996
+Osmaniye,5,Turizm / Otelcilik,46.615879938
+Rize,1,Sağlık,68.565103751
+Rize,2,Sosyal Hizmetler,62.46005308700001
+Rize,3,Lojistik,62.41649636699999
+Rize,4,Ulaşım,58.641521014
+Rize,5,Çevre / Atık,54.907455344
+Sakarya,1,Sağlık,79.311265831
+Sakarya,2,Ulaşım,78.058226689
+Sakarya,3,Sosyal Hizmetler,75.015780507
+Sakarya,4,Çevre / Atık,68.92112592599999
+Sakarya,5,Enerji,67.397389084
+Samsun,1,Sağlık,81.16750557600001
+Samsun,2,Ulaşım,77.871389102
+Samsun,3,Sosyal Hizmetler,77.67979863000001
+Samsun,4,Çevre / Atık,71.341101378
+Samsun,5,Turizm / Otelcilik,54.479113932000004
+Siirt,1,Sağlık,85.341575722
+Siirt,2,Sosyal Hizmetler,84.64846621699999
+Siirt,3,Çevre / Atık,74.02197505100001
+Siirt,4,Ulaşım,65.73273807000001
+Siirt,5,Enerji,43.29324219
+Sinop,1,Lojistik,64.70671002
+Sinop,2,Ulaşım,62.079043793
+Sinop,3,Sağlık,60.521973703
+Sinop,4,Sosyal Hizmetler,53.365177866
+Sinop,5,Turizm / Otelcilik,53.093199531
+Sivas,1,Sağlık,78.18531182400001
+Sivas,2,Sosyal Hizmetler,73.236024683
+Sivas,3,Ulaşım,69.396079769
+Sivas,4,Çevre / Atık,63.993253509000006
+Sivas,5,Tarım ve Hayvancılık,61.306104192999996
+Şanlıurfa,1,Sağlık,86.936557691
+Şanlıurfa,2,Sosyal Hizmetler,83.67311336199998
+Şanlıurfa,3,Çevre / Atık,76.503558296
+Şanlıurfa,4,Ulaşım,72.714921276
+Şanlıurfa,5,Turizm / Otelcilik,44.460787361
+Şırnak,1,Sağlık,83.57235111099999
+Şırnak,2,Sosyal Hizmetler,82.465574282
+Şırnak,3,Çevre / Atık,73.066574555
+Şırnak,4,Ulaşım,71.988695432
+Şırnak,5,Lojistik,53.940263284000004
+Tekirdağ,1,Ulaşım,86.139125406
+Tekirdağ,2,Sağlık,78.44153500499999
+Tekirdağ,3,Sosyal Hizmetler,74.27396834100001
+Tekirdağ,4,Turizm / Otelcilik,66.109469368
+Tekirdağ,5,Çevre / Atık,66.05808077399999
+Tokat,1,Sağlık,78.335085157
+Tokat,2,Sosyal Hizmetler,73.79508085500001
+Tokat,3,Çevre / Atık,69.551999966
+Tokat,4,Ulaşım,69.277184082
+Tokat,5,Lojistik,50.395048838
+Trabzon,1,Sağlık,79.693862336
+Trabzon,2,Sosyal Hizmetler,76.030292524
+Trabzon,3,Ulaşım,71.83582701700001
+Trabzon,4,Çevre / Atık,68.584048964
+Trabzon,5,Lojistik,59.47261399799999
+Tunceli,1,Lojistik,80.04512137100001
+Tunceli,2,Gıda İşleme,61.196508179
+Tunceli,3,Enerji,57.750179188000004
+Tunceli,4,Sanayi / Üretim,56.464321845
+Tunceli,5,Perakende,55.257048707
+Uşak,1,Sağlık,69.85396529399999
+Uşak,2,Sosyal Hizmetler,64.01305693299999
+Uşak,3,Ulaşım,61.398950841
+Uşak,4,Lojistik,57.496234681000004
+Uşak,5,Çevre / Atık,53.765583104
+Van,1,Sağlık,87.824922831
+Van,2,Sosyal Hizmetler,85.604545131
+Van,3,Çevre / Atık,78.159420426
+Van,4,Ulaşım,65.596016561
+Van,5,Lojistik,38.234443905999996
+Yalova,1,Konut & İnşaat,81.769931368
+Yalova,2,Turizm / Otelcilik,73.52674669000001
+Yalova,3,Ulaşım,68.38590759
+Yalova,4,Enerji,68.253371581
+Yalova,5,Sağlık,65.267514352
+Yozgat,1,Sağlık,77.695166382
+Yozgat,2,Sosyal Hizmetler,72.068162185
+Yozgat,3,Tarım ve Hayvancılık,68.478825804
+Yozgat,4,Gıda İşleme,61.300493261
+Yozgat,5,Çevre / Atık,60.516551404999994
+Zonguldak,1,Sağlık,79.05844154799999
+Zonguldak,2,Sosyal Hizmetler,77.045097878
+Zonguldak,3,Çevre / Atık,70.014276612
+Zonguldak,4,Ulaşım,68.14924714399999
+Zonguldak,5,Turizm / Otelcilik,44.971503525
