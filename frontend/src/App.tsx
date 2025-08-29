@@ -26,14 +26,8 @@ function App() {
 
         <section className="map-section">
           <h2>🗺️ Türkiye Haritası</h2>
-          <p>İllere tıklayarak en iyi sektörlerini görün</p>
-          <TurkeyMap onCityClick={handleCityClick} />
-          {selectedCity && (
-            <div className="selected-city-info">
-              <h3>Seçilen Şehir: {selectedCity}</h3>
-              <p>Bu şehrin detaylı sektör analizi için API entegrasyonu yapılacak.</p>
-            </div>
-          )}
+          <p>Basit harita görünümü</p>
+          <TurkeyMap />
         </section>
 
         <section className="features-section">

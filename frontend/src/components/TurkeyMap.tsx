@@ -1,242 +1,173 @@
-import React, { useState } from 'react';
-import Map, { Source, Layer, Popup, ViewState } from 'react-map-gl';
+import React, { useEffect, useRef, useState } from 'react';
+import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-
-// Mapbox token'ı (ücretsiz hesap için)
-// Gerçek uygulamada: process.env.REACT_APP_MAPBOX_TOKEN
-const MAPBOX_TOKEN = 'pk.eyJ1IjoiYmFyYW5rb2NhIiwiYSI6ImNsZ3h4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4In0.example';
 
 interface CityData {
   name: string;
   coordinates: [number, number];
-  topSectors: Array<{
-    sector: string;
-    score: number;
-  }>;
 }
 
-interface TurkeyMapProps {
-  onCityClick?: (cityName: string) => void;
-}
+const TurkeyMap: React.FC = () => {
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const map = useRef<mapboxgl.Map | null>(null);
+  const currentPopup = useRef<mapboxgl.Popup | null>(null);
 
-const TurkeyMap: React.FC<TurkeyMapProps> = ({ onCityClick }) => {
-  const [viewState, setViewState] = useState({
-    longitude: 35.243322,
-    latitude: 38.963745,
-    zoom: 5.5
-  });
-
-  const [selectedCity, setSelectedCity] = useState<CityData | null>(null);
-  const [popupInfo, setPopupInfo] = useState<{
-    longitude: number;
-    latitude: number;
-    cityName: string;
-    topSectors: Array<{ sector: string; score: number }>;
-  } | null>(null);
-
-  // Türkiye illeri ve koordinatları (örnek veri)
+  // Türkiye illeri ve koordinatları
   const cities: CityData[] = [
-    {
-      name: 'İstanbul',
-      coordinates: [28.9784, 41.0082],
-      topSectors: [
-        { sector: 'Lojistik', score: 85.2 },
-        { sector: 'Finans', score: 82.1 },
-        { sector: 'Teknoloji', score: 78.9 },
-        { sector: 'Turizm', score: 76.5 },
-        { sector: 'Sağlık', score: 74.3 }
-      ]
-    },
-    {
-      name: 'Ankara',
-      coordinates: [32.8597, 39.9334],
-      topSectors: [
-        { sector: 'Sosyal Hizmetler', score: 88.7 },
-        { sector: 'Eğitim', score: 85.4 },
-        { sector: 'Sağlık', score: 82.1 },
-        { sector: 'Teknoloji', score: 79.8 },
-        { sector: 'Lojistik', score: 76.2 }
-      ]
-    },
-    {
-      name: 'İzmir',
-      coordinates: [27.1428, 38.4237],
-      topSectors: [
-        { sector: 'Turizm', score: 87.3 },
-        { sector: 'Tarım', score: 84.6 },
-        { sector: 'Lojistik', score: 81.9 },
-        { sector: 'Eğitim', score: 78.4 },
-        { sector: 'Sağlık', score: 75.8 }
-      ]
-    },
-    {
-      name: 'Bursa',
-      coordinates: [29.0610, 40.1885],
-      topSectors: [
-        { sector: 'Sanayi', score: 89.1 },
-        { sector: 'Otomotiv', score: 86.7 },
-        { sector: 'Lojistik', score: 83.2 },
-        { sector: 'Teknoloji', score: 80.5 },
-        { sector: 'Eğitim', score: 77.8 }
-      ]
-    },
-    {
-      name: 'Antalya',
-      coordinates: [30.7133, 36.8969],
-      topSectors: [
-        { sector: 'Turizm', score: 92.4 },
-        { sector: 'Tarım', score: 85.7 },
-        { sector: 'Sağlık', score: 82.3 },
-        { sector: 'Eğitim', score: 79.1 },
-        { sector: 'Lojistik', score: 76.8 }
-      ]
-    }
+    { name: 'Adana', coordinates: [35.3213, 37.0000] },
+    { name: 'Adıyaman', coordinates: [38.2784, 37.7648] },
+    { name: 'Afyonkarahisar', coordinates: [30.5456, 38.7507] },
+    { name: 'Ağrı', coordinates: [43.0503, 39.7191] },
+    { name: 'Aksaray', coordinates: [34.0297, 38.3726] },
+    { name: 'Amasya', coordinates: [35.8333, 40.6499] },
+    { name: 'Ankara', coordinates: [32.8597, 39.9334] },
+    { name: 'Antalya', coordinates: [30.7133, 36.8969] },
+    { name: 'Ardahan', coordinates: [42.7023, 41.1105] },
+    { name: 'Artvin', coordinates: [41.8183, 41.1828] },
+    { name: 'Aydın', coordinates: [27.8456, 37.8560] },
+    { name: 'Balıkesir', coordinates: [27.8903, 39.6484] },
+    { name: 'Bartın', coordinates: [32.3375, 41.6344] },
+    { name: 'Batman', coordinates: [41.1292, 37.8812] },
+    { name: 'Bayburt', coordinates: [40.2552, 40.2552] },
+    { name: 'Bilecik', coordinates: [29.9792, 40.1451] },
+    { name: 'Bingöl', coordinates: [40.4983, 38.8855] },
+    { name: 'Bitlis', coordinates: [42.1093, 38.4006] },
+    { name: 'Bolu', coordinates: [31.6082, 40.7397] },
+    { name: 'Burdur', coordinates: [30.2868, 37.7205] },
+    { name: 'Bursa', coordinates: [29.0610, 40.1885] },
+    { name: 'Çanakkale', coordinates: [26.4086, 40.1553] },
+    { name: 'Çankırı', coordinates: [33.6167, 40.6013] },
+    { name: 'Çorum', coordinates: [34.9537, 40.5499] },
+    { name: 'Denizli', coordinates: [29.0963, 37.7765] },
+    { name: 'Diyarbakır', coordinates: [40.2346, 37.9144] },
+    { name: 'Düzce', coordinates: [31.1626, 40.8438] },
+    { name: 'Edirne', coordinates: [26.5557, 41.6771] },
+    { name: 'Elazığ', coordinates: [39.2233, 38.6810] },
+    { name: 'Erzincan', coordinates: [39.4903, 39.7500] },
+    { name: 'Erzurum', coordinates: [41.2763, 39.9055] },
+    { name: 'Eskişehir', coordinates: [30.5206, 39.7767] },
+    { name: 'Gaziantep', coordinates: [37.3781, 37.0662] },
+    { name: 'Giresun', coordinates: [38.3927, 40.9128] },
+    { name: 'Gümüşhane', coordinates: [39.4814, 40.4603] },
+    { name: 'Hakkari', coordinates: [43.7408, 37.5742] },
+    { name: 'Hatay', coordinates: [36.1626, 36.2023] },
+    { name: 'Iğdır', coordinates: [44.0442, 39.9167] },
+    { name: 'Isparta', coordinates: [30.5536, 37.7648] },
+    { name: 'İstanbul', coordinates: [28.9784, 41.0082] },
+    { name: 'İzmir', coordinates: [27.1428, 38.4237] },
+    { name: 'Kahramanmaraş', coordinates: [36.9228, 37.5858] },
+    { name: 'Karabük', coordinates: [32.6277, 41.2061] },
+    { name: 'Karaman', coordinates: [33.2154, 37.1759] },
+    { name: 'Kars', coordinates: [43.0975, 40.6013] },
+    { name: 'Kastamonu', coordinates: [33.7760, 41.3887] },
+    { name: 'Kayseri', coordinates: [35.4889, 38.7205] },
+    { name: 'Kırıkkale', coordinates: [33.5067, 39.8453] },
+    { name: 'Kırklareli', coordinates: [27.2261, 41.7355] },
+    { name: 'Kırşehir', coordinates: [34.1728, 39.1425] },
+    { name: 'Kilis', coordinates: [37.1147, 36.7184] },
+    { name: 'Kocaeli', coordinates: [29.9187, 40.8533] },
+    { name: 'Konya', coordinates: [32.4847, 37.8667] },
+    { name: 'Kütahya', coordinates: [29.9833, 39.4167] },
+    { name: 'Malatya', coordinates: [38.3552, 38.3552] },
+    { name: 'Manisa', coordinates: [27.4286, 38.6191] },
+    { name: 'Mardin', coordinates: [40.7436, 37.3212] },
+    { name: 'Mersin', coordinates: [34.6415, 36.8121] },
+    { name: 'Muğla', coordinates: [28.3665, 37.2154] },
+    { name: 'Muş', coordinates: [41.4911, 38.7432] },
+    { name: 'Nevşehir', coordinates: [34.7144, 38.6244] },
+    { name: 'Niğde', coordinates: [34.6764, 37.9667] },
+    { name: 'Ordu', coordinates: [37.8797, 40.9862] },
+    { name: 'Osmaniye', coordinates: [36.2479, 37.0742] },
+    { name: 'Rize', coordinates: [40.5219, 41.0201] },
+    { name: 'Sakarya', coordinates: [30.4033, 40.7569] },
+    { name: 'Samsun', coordinates: [36.3361, 41.2867] },
+    { name: 'Siirt', coordinates: [41.9417, 37.9333] },
+    { name: 'Sinop', coordinates: [35.1551, 42.0231] },
+    { name: 'Sivas', coordinates: [37.0150, 39.7477] },
+    { name: 'Şanlıurfa', coordinates: [38.7955, 37.1591] },
+    { name: 'Şırnak', coordinates: [42.4542, 37.5164] },
+    { name: 'Tekirdağ', coordinates: [27.5111, 40.9781] },
+    { name: 'Tokat', coordinates: [36.5541, 40.3167] },
+    { name: 'Trabzon', coordinates: [39.7168, 41.0015] },
+    { name: 'Tunceli', coordinates: [39.5444, 39.1079] },
+    { name: 'Uşak', coordinates: [29.4058, 38.6742] },
+    { name: 'Van', coordinates: [43.4089, 38.4891] },
+    { name: 'Yalova', coordinates: [29.2769, 40.6500] },
+    { name: 'Yozgat', coordinates: [34.8083, 39.8181] },
+    { name: 'Zonguldak', coordinates: [31.7937, 41.4564] }
   ];
 
-  const handleMapClick = (event: any) => {
-    const feature = event.features && event.features[0];
-    if (feature) {
-      const cityName = feature.properties?.name;
-      const city = cities.find(c => c.name === cityName);
-      
-      if (city) {
-        setPopupInfo({
-          longitude: event.lngLat.lng,
-          latitude: event.lngLat.lat,
-          cityName: city.name,
-          topSectors: city.topSectors
-        });
-        
-        if (onCityClick) {
-          onCityClick(city.name);
-        }
-      }
-    }
-  };
+  useEffect(() => {
+    if (map.current) return; // initialize map only once
+    
+    mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+    
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current!,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [35.243322, 38.963745], // Türkiye merkezi
+      zoom: 5
+    });
 
-  const cityLayer = {
-    id: 'cities',
-    type: 'circle' as const,
-    paint: {
-      'circle-radius': 8,
-      'circle-color': '#4ecdc4',
-      'circle-stroke-color': '#fff',
-      'circle-stroke-width': 2,
-      'circle-opacity': 0.8
-    }
-  };
+    // Harita yüklendiğinde pin'leri ekle
+    map.current.on('load', () => {
+      console.log('Harita yüklendi, pin\'ler ekleniyor...');
+      
+      // Her şehir için pin ekle
+      cities.forEach(city => {
+        // Pin elementi oluştur
+        const el = document.createElement('div');
+        el.className = 'city-marker';
+        el.style.width = '20px';
+        el.style.height = '20px';
+        el.style.borderRadius = '50%';
+        el.style.backgroundColor = '#4ecdc4';
+        el.style.border = '2px solid white';
+        el.style.cursor = 'pointer';
+        el.style.boxShadow = '0 2px 4px rgba(0,0,0,0.3)';
+
+        // Pin'i haritaya ekle
+        const marker = new mapboxgl.Marker(el)
+          .setLngLat(city.coordinates)
+          .addTo(map.current!);
+
+        // Pin'e tıklama olayı ekle
+        marker.getElement().addEventListener('click', () => {
+          console.log(`${city.name} tıklandı!`);
+          
+          // Önceki popup'ı kapat
+          if (currentPopup.current) {
+            currentPopup.current.remove();
+            currentPopup.current = null;
+          }
+
+          // Yeni popup oluştur
+          const newPopup = new mapboxgl.Popup({ 
+            closeButton: true,
+            closeOnClick: false,
+            maxWidth: '200px'
+          })
+            .setLngLat(city.coordinates)
+            .setHTML(`
+              <div style="padding: 10px; min-width: 150px;">
+                <h3 style="margin: 0; color: #4ecdc4; font-size: 16px; font-weight: bold;">
+                  ${city.name}
+                </h3>
+              </div>
+            `);
+
+          // Popup'ı haritaya ekle
+          newPopup.addTo(map.current!);
+          currentPopup.current = newPopup;
+        });
+      });
+    });
+
+  }, []);
 
   return (
     <div style={{ width: '100%', height: '500px', borderRadius: '15px', overflow: 'hidden' }}>
-      <Map
-        {...viewState}
-        onMove={(evt: { viewState: ViewState }) => setViewState(evt.viewState)}
-        style={{ width: '100%', height: '100%' }}
-        mapStyle="mapbox://styles/mapbox/light-v11"
-        mapboxAccessToken={MAPBOX_TOKEN}
-        onClick={handleMapClick}
-        interactiveLayerIds={['cities']}
-      >
-        {/* Türkiye sınırları */}
-        <Source
-          id="turkey-boundaries"
-          type="vector"
-          url="mapbox://mapbox.country-boundaries-v1"
-        >
-          <Layer
-            id="turkey-fill"
-            type="fill"
-            source-layer="country_boundaries"
-            filter={['==', 'name_en', 'Turkey']}
-            paint={{
-              'fill-color': 'rgba(255, 255, 255, 0.1)',
-              'fill-outline-color': '#4ecdc4'
-            }}
-          />
-        </Source>
-
-        {/* İl noktaları */}
-        <Source
-          id="cities-source"
-          type="geojson"
-          data={{
-            type: 'FeatureCollection',
-            features: cities.map(city => ({
-              type: 'Feature',
-              geometry: {
-                type: 'Point',
-                coordinates: city.coordinates
-              },
-              properties: {
-                name: city.name,
-                topSectors: city.topSectors
-              }
-            }))
-          }}
-        >
-          <Layer {...cityLayer} />
-        </Source>
-
-        {/* Popup */}
-        {popupInfo && (
-          <Popup
-            longitude={popupInfo.longitude}
-            latitude={popupInfo.latitude}
-            anchor="bottom"
-            onClose={() => setPopupInfo(null)}
-            closeButton={true}
-            closeOnClick={false}
-            style={{
-              background: 'rgba(255, 255, 255, 0.95)',
-              borderRadius: '10px',
-              padding: '0',
-              border: 'none',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)'
-            }}
-          >
-            <div style={{ padding: '15px', minWidth: '200px' }}>
-              <h3 style={{ 
-                margin: '0 0 10px 0', 
-                color: '#4ecdc4', 
-                fontSize: '16px',
-                fontWeight: 'bold'
-              }}>
-                {popupInfo.cityName}
-              </h3>
-              <h4 style={{ 
-                margin: '0 0 8px 0', 
-                color: '#333', 
-                fontSize: '14px',
-                fontWeight: '600'
-              }}>
-                En İyi Sektörler:
-              </h4>
-              <ul style={{ 
-                margin: '0', 
-                padding: '0', 
-                listStyle: 'none',
-                fontSize: '12px'
-              }}>
-                {popupInfo.topSectors.map((sector, index) => (
-                  <li key={index} style={{ 
-                    margin: '4px 0',
-                    padding: '4px 8px',
-                    background: 'rgba(78, 205, 196, 0.1)',
-                    borderRadius: '4px',
-                    display: 'flex',
-                    justifyContent: 'space-between'
-                  }}>
-                    <span>{sector.sector}</span>
-                    <span style={{ fontWeight: 'bold', color: '#4ecdc4' }}>
-                      {sector.score.toFixed(1)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Popup>
-        )}
-      </Map>
+      <div ref={mapContainer} style={{ width: '100%', height: '100%' }} />
     </div>
   );
 };

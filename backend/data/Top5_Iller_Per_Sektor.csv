@@ -1,96 +1,96 @@
 ﻿Sektor,Sira,Sehir,Skor
-Turizm / Otelcilik,1,Yalova,73.52674669000001
-Turizm / Otelcilik,2,Giresun,67.90939373600001
-Turizm / Otelcilik,3,Tekirdağ,66.109469368
-Turizm / Otelcilik,4,Amasya,60.662260077999996
-Turizm / Otelcilik,5,Aydın,60.54770046
-Teknoloji / Yazılım,1,Giresun,69.99960076
-Teknoloji / Yazılım,2,Gümüşhane,64.219631646
-Teknoloji / Yazılım,3,Amasya,56.95402372
-Teknoloji / Yazılım,4,Bilecik,51.410983669
-Teknoloji / Yazılım,5,Artvin,46.244370432
-Sanayi / Üretim,1,Bayburt,59.72597832900001
-Sanayi / Üretim,2,Gümüşhane,58.782715762
-Sanayi / Üretim,3,Sakarya,58.10276370399999
-Sanayi / Üretim,4,Ardahan,57.645651318
-Sanayi / Üretim,5,Tunceli,56.464321845
-Tarım ve Hayvancılık,1,Kırşehir,71.01876258200001
-Tarım ve Hayvancılık,2,Yozgat,68.478825804
-Tarım ve Hayvancılık,3,Karaman,67.731446667
-Tarım ve Hayvancılık,4,Bayburt,64.601812121
-Tarım ve Hayvancılık,5,Çankırı,62.281465168000004
-Sağlık,1,Ağrı,89.09786120000001
-Sağlık,2,Hatay,88.417008554
-Sağlık,3,İstanbul,87.89843051099999
-Sağlık,4,Van,87.824922831
-Sağlık,5,Adıyaman,87.102337405
-Enerji,1,Yalova,68.253371581
-Enerji,2,Eskişehir,68.100623978
-Enerji,3,Bursa,67.837501351
-Enerji,4,Sakarya,67.397389084
-Enerji,5,Tekirdağ,65.749252225
-Konut & İnşaat,1,Yalova,81.769931368
-Konut & İnşaat,2,Tekirdağ,62.642132671999995
-Konut & İnşaat,3,Aydın,57.655175377
-Konut & İnşaat,4,Bolu,56.246862134
-Konut & İnşaat,5,Antalya,55.733861524000005
-Lojistik,1,Tunceli,80.04512137100001
-Lojistik,2,Bayburt,75.5733637
-Lojistik,3,Bartın,72.292306584
-Lojistik,4,Artvin,71.779948723
-Lojistik,5,Karaman,71.327827869
-Perakende,1,Yalova,65.040862835
-Perakende,2,Giresun,58.534243886999995
-Perakende,3,Tunceli,55.257048707
-Perakende,4,Gümüşhane,54.87469832299999
-Perakende,5,Amasya,52.509133831
-Eğitim Kurumları,1,Giresun,80.69745107199999
-Eğitim Kurumları,2,Gümüşhane,73.622363305
-Eğitim Kurumları,3,Amasya,63.965062716999995
-Eğitim Kurumları,4,Bilecik,54.716880857999996
-Eğitim Kurumları,5,Artvin,45.004945131
-Gıda İşleme,1,Bayburt,71.531769707
-Gıda İşleme,2,Karaman,64.885667094
-Gıda İşleme,3,Ardahan,63.736593529
-Gıda İşleme,4,Kırşehir,63.548462675
-Gıda İşleme,5,Yozgat,61.300493261
-Finans,1,Giresun,72.03325483299999
-Finans,2,Gümüşhane,69.528626731
-Finans,3,Ardahan,55.22968631799999
-Finans,4,Amasya,54.91854319099999
-Finans,5,Bayburt,48.696180819
-Otomotiv,1,Ardahan,61.712949436999985
-Otomotiv,2,Bayburt,61.536711487999995
-Otomotiv,3,Gümüşhane,59.814107234000005
-Otomotiv,4,Sakarya,57.613037036
-Otomotiv,5,Bilecik,55.093553353000004
-Mobilya,1,Giresun,55.23594783000001
-Mobilya,2,Gümüşhane,53.210827782
-Mobilya,3,Yalova,49.924014246999995
-Mobilya,4,Amasya,44.229536726
-Mobilya,5,Ardahan,41.094628709999995
-Telekom,1,Giresun,80.90981724900001
-Telekom,2,Gümüşhane,68.023528659
-Telekom,3,Amasya,65.211126038
-Telekom,4,Bilecik,56.843648924
-Telekom,5,Yalova,50.507325605
-Çevre / Atık,1,Iğdır,89.77619311800001
-Çevre / Atık,2,Ağrı,86.50185908899999
-Çevre / Atık,3,Hakkari,86.116228324
-Çevre / Atık,4,Ardahan,83.041489467
-Çevre / Atık,5,Adıyaman,82.938547675
-Sosyal Hizmetler,1,Hakkari,88.69129326999999
-Sosyal Hizmetler,2,Adıyaman,86.816747601
-Sosyal Hizmetler,3,Ağrı,86.249072904
-Sosyal Hizmetler,4,Hatay,85.734816748
-Sosyal Hizmetler,5,Van,85.604545131
-Kültür & Sanat,1,Giresun,78.447484451
-Kültür & Sanat,2,Gümüşhane,67.082942301
-Kültür & Sanat,3,Amasya,64.667398444
-Kültür & Sanat,4,Bilecik,57.898176334999995
-Kültür & Sanat,5,Yalova,51.01629435
-Ulaşım,1,Tekirdağ,86.139125406
-Ulaşım,2,Muğla,84.011728976
-Ulaşım,3,Antalya,83.65820099800001
-Ulaşım,4,Kocaeli,82.880807195
-Ulaşım,5,Ankara,82.20591811
+Turizm / Otelcilik,1,Ankara,53.40375018443149
+Turizm / Otelcilik,2,Gaziantep,49.990169791730565
+Turizm / Otelcilik,3,Şanlıurfa,48.39354104892841
+Turizm / Otelcilik,4,İzmir,48.10343996811305
+Turizm / Otelcilik,5,İstanbul,47.935686045779136
+Teknoloji / Yazılım,1,Kocaeli,58.35554891626125
+Teknoloji / Yazılım,2,İstanbul,56.078327126905045
+Teknoloji / Yazılım,3,Bursa,56.02701134574322
+Teknoloji / Yazılım,4,İzmir,53.649538444518086
+Teknoloji / Yazılım,5,Ankara,50.26357080198912
+Sanayi / Üretim,1,İstanbul,76.73001001062683
+Sanayi / Üretim,2,Bursa,64.42696567827325
+Sanayi / Üretim,3,Kocaeli,62.746614741656316
+Sanayi / Üretim,4,Manisa,62.496721416332846
+Sanayi / Üretim,5,Ankara,62.41897379390865
+Tarım ve Hayvancılık,1,Konya,82.28471257038882
+Tarım ve Hayvancılık,2,Ankara,63.533233705899164
+Tarım ve Hayvancılık,3,Şanlıurfa,61.689488537996205
+Tarım ve Hayvancılık,4,Manisa,49.22105060478882
+Tarım ve Hayvancılık,5,Sivas,48.91575417082233
+Sağlık,1,Hakkari,88.098212912255
+Sağlık,2,Adıyaman,81.61436483614955
+Sağlık,3,Siirt,78.40435729371472
+Sağlık,4,Şırnak,76.64322196621154
+Sağlık,5,Muş,75.81835331538814
+Enerji,1,İstanbul,73.96609659315199
+Enerji,2,Ankara,64.276376631464
+Enerji,3,Bursa,56.294828971305776
+Enerji,4,Manisa,53.41966516573732
+Enerji,5,Kocaeli,53.41660350815487
+Konut & İnşaat,1,Ankara,66.37335683503306
+Konut & İnşaat,2,İstanbul,63.62069517992911
+Konut & İnşaat,3,İzmir,56.137985617024164
+Konut & İnşaat,4,Antalya,54.41065333956578
+Konut & İnşaat,5,Tekirdağ,50.31611271939151
+Lojistik,1,Manisa,90.81813712985901
+Lojistik,2,Konya,87.41890669792357
+Lojistik,3,Sakarya,85.23121880679653
+Lojistik,4,Isparta,84.37744562107797
+Lojistik,5,Karaman,84.27477016471236
+Perakende,1,İstanbul,77.0574108604743
+Perakende,2,Ankara,60.88413785393677
+Perakende,3,Bursa,56.77745353808571
+Perakende,4,Kocaeli,53.996647582622984
+Perakende,5,İzmir,50.15284342089843
+Eğitim Kurumları,1,İstanbul,62.07795840390708
+Eğitim Kurumları,2,Kocaeli,51.09119219455567
+Eğitim Kurumları,3,Bursa,50.9425287749479
+Eğitim Kurumları,4,Gaziantep,46.73962493166829
+Eğitim Kurumları,5,Gümüşhane,45.12606966832641
+Gıda İşleme,1,Konya,88.63626387827975
+Gıda İşleme,2,Ankara,68.74650785524987
+Gıda İşleme,3,Manisa,64.43429451070733
+Gıda İşleme,4,Afyonkarahisar,59.16904727949901
+Gıda İşleme,5,Sivas,57.12973654662209
+Finans,1,İstanbul,76.45456618729358
+Finans,2,Kocaeli,68.12634961463637
+Finans,3,Bursa,66.28356701976305
+Finans,4,Manisa,54.937223140377725
+Finans,5,Ankara,54.79035769379112
+Otomotiv,1,İstanbul,84.67981017468755
+Otomotiv,2,Manisa,63.415230669364945
+Otomotiv,3,Bursa,62.36885093401159
+Otomotiv,4,Ankara,59.88987046888128
+Otomotiv,5,Kocaeli,59.85705544100486
+Mobilya,1,İstanbul,91.07690474742846
+Mobilya,2,Ankara,51.38673364439848
+Mobilya,3,Bursa,47.21049743770151
+Mobilya,4,Kocaeli,46.54656291028461
+Mobilya,5,İzmir,44.35406249180366
+Telekom,1,Kocaeli,54.560555732675674
+Telekom,2,Bursa,54.14037742051683
+Telekom,3,İstanbul,51.93437002720835
+Telekom,4,Gaziantep,48.14826159708285
+Telekom,5,Gümüşhane,46.787635848941655
+Çevre / Atık,1,Iğdır,86.71734987911435
+Çevre / Atık,2,Hakkari,82.92324747161788
+Çevre / Atık,3,Adıyaman,81.50373519555755
+Çevre / Atık,4,Kilis,79.31010133961415
+Çevre / Atık,5,Ağrı,75.22675040422338
+Sosyal Hizmetler,1,Hakkari,88.81006810066215
+Sosyal Hizmetler,2,Siirt,83.57042275885192
+Sosyal Hizmetler,3,Adıyaman,81.3068276632223
+Sosyal Hizmetler,4,Şırnak,79.21323252733453
+Sosyal Hizmetler,5,Mardin,78.00897837630879
+Kültür & Sanat,1,Kocaeli,52.683664272591045
+Kültür & Sanat,2,Bursa,52.34177078343409
+Kültür & Sanat,3,İstanbul,51.78826027704873
+Kültür & Sanat,4,Gaziantep,51.54809604006113
+Kültür & Sanat,5,Şanlıurfa,48.159530094399216
+Ulaşım,1,Hakkari,83.88491975245167
+Ulaşım,2,Kilis,75.48167264993742
+Ulaşım,3,Adıyaman,72.59577391426663
+Ulaşım,4,Siirt,70.38966093491359
+Ulaşım,5,Muş,68.8670334106024
