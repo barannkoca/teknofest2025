@@ -1,45 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import axios from 'axios';
-
-interface ScoreData {
-  [key: string]: number;
-}
-
-interface Top5Data {
-  Sektor: string;
-  Sira: number;
-  Sehir: string;
-  Skor: number;
-}
+import TurkeyMap from './components/TurkeyMap';
 
 function App() {
-  const [sectorCityScores, setSectorCityScores] = useState<ScoreData[]>([]);
-  const [citySectorScores, setCitySectorScores] = useState<ScoreData[]>([]);
-  const [top5CitiesPerSector, setTop5CitiesPerSector] = useState<Top5Data[]>([]);
-  const [top5SectorsPerCity, setTop5SectorsPerCity] = useState<Top5Data[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedSector, setSelectedSector] = useState<string>('');
   const [selectedCity, setSelectedCity] = useState<string>('');
 
-  useEffect(() => {
-    // CSV dosyalarını oku (gerçek uygulamada API'den gelecek)
-    loadData();
-  }, []);
-
-  const loadData = async () => {
-    try {
-      // Gerçek uygulamada bu veriler API'den gelecek
-      setLoading(false);
-    } catch (error) {
-      console.error('Veri yükleme hatası:', error);
-      setLoading(false);
-    }
+  const handleCityClick = (cityName: string) => {
+    setSelectedCity(cityName);
+    console.log(`Seçilen şehir: ${cityName}`);
   };
-
-  if (loading) {
-    return <div className="App">Yükleniyor...</div>;
-  }
 
   return (
     <div className="App">
@@ -53,6 +22,18 @@ function App() {
         <section className="hero-section">
           <h2>Eco-friendly Business Scoring API</h2>
           <p>81 ili 14 normalize gösterge ile 20 sektör açısından sayısal olarak puanlayan ve iki yönlü öneri veren karar destek sistemi</p>
+        </section>
+
+        <section className="map-section">
+          <h2>🗺️ Türkiye Haritası</h2>
+          <p>İllere tıklayarak en iyi sektörlerini görün</p>
+          <TurkeyMap onCityClick={handleCityClick} />
+          {selectedCity && (
+            <div className="selected-city-info">
+              <h3>Seçilen Şehir: {selectedCity}</h3>
+              <p>Bu şehrin detaylı sektör analizi için API entegrasyonu yapılacak.</p>
+            </div>
+          )}
         </section>
 
         <section className="features-section">
@@ -129,7 +110,7 @@ function App() {
 
       <footer className="App-footer">
         <p>© 2025 ECOMINDS - Teknofest 2025 Yarışması</p>
-        <p>Backend: FastAPI (Python) | Frontend: React (TypeScript)</p>
+        <p>Backend: FastAPI (Python) | Frontend: React (TypeScript) | Harita: Mapbox</p>
       </footer>
     </div>
   );
