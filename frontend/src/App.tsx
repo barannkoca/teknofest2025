@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import TurkeyMap from './components/TurkeyMap';
+import SectorSearch from './components/SectorSearch';
 
 function App() {
   const [selectedCity, setSelectedCity] = useState<string>('');
@@ -13,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>🌱 ECOMINDS</h1>
+        <h1>MIYE</h1>
         <p>İl ve Sektör Bazlı Karar Destek Sistemi</p>
         <p>Teknofest 2025</p>
       </header>
@@ -26,8 +27,11 @@ function App() {
 
         <section className="map-section">
           <h2>🗺️ Türkiye Haritası</h2>
-          <p>Basit harita görünümü</p>
           <TurkeyMap />
+        </section>
+
+        <section className="sector-search-section">
+          <SectorSearch />
         </section>
 
         <section className="features-section">
@@ -41,42 +45,6 @@ function App() {
             <p>Bir il seçildiğinde 20 sektörün o il için puanını hesaplar ve en iyi 5 sektörü sıralar</p>
           </div>
           
-          <div className="feature-card">
-            <h3>⚖️ YÖN Dönüşümü</h3>
-            <p>Her kriter için "Yüksek" veya "Düşük" avantaj kuralları</p>
-          </div>
-          
-          <div className="feature-card">
-            <h3>📈 Ağırlıklı Skorlama</h3>
-            <p>Sektöre özel kriter ağırlıkları ile hesaplama</p>
-          </div>
-        </section>
-
-        <section className="results-section">
-          <h2>📋 Sonuçlar</h2>
-          <div className="results-grid">
-            <div className="result-card">
-              <h3>En Yüksek Ortalama Skorlu Sektörler</h3>
-              <ol>
-                <li>Lojistik: 63.7</li>
-                <li>Sosyal Hizmetler: 50.8</li>
-                <li>Ulaşım: 44.8</li>
-                <li>Sağlık: 44.5</li>
-                <li>Sanayi / Üretim: 43.8</li>
-              </ol>
-            </div>
-            
-            <div className="result-card">
-              <h3>En Yüksek Ortalama Skorlu İller</h3>
-              <ol>
-                <li>İstanbul: 54.9</li>
-                <li>Ankara: 52.4</li>
-                <li>Bursa: 49.4</li>
-                <li>Konya: 48.9</li>
-                <li>Kocaeli: 48.6</li>
-              </ol>
-            </div>
-          </div>
         </section>
 
         <section className="stats-section">

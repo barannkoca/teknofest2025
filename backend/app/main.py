@@ -11,6 +11,8 @@ from typing import Dict, List
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+import pandas as pd
+import os
 
 from .schemas import (
     HealthResponse,
@@ -47,6 +49,116 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ---- CSV dosya yolları ------------------------------------------------------
+
+CSV_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
+TOP5_ILLER_PER_SEKTOR_CSV = os.path.join(CSV_DIR, "Top5_Iller_Per_Sektor.csv")
+TOP5_SEKTORLER_PER_IL_CSV = os.path.join(CSV_DIR, "Top5_Sektorler_Per_Il.csv")
+
+# ---- CSV veri yükleme fonksiyonları ----------------------------------------
+
+def load_top5_iller_per_sektor() -> pd.DataFrame:
+    """Top5_Iller_Per_Sektor.csv dosyasını yükler"""
+    try:
+        df = pd.read_csv(TOP5_ILLER_PER_SEKTOR_CSV)
+        return df
+    except Exception as e:
+        print(f"Top5_Iller_Per_Sektor.csv yükleme hatası: {e}")
+        return pd.DataFrame()
+
+def load_top5_sektorler_per_il() -> pd.DataFrame:
+    """Top5_Sektorler_Per_Il.csv dosyasını yükler"""
+    try:
+        df = pd.read_csv(TOP5_SEKTORLER_PER_IL_CSV)
+        return df
+    except Exception as e:
+        print(f"Top5_Sektorler_Per_Il.csv yükleme hatası: {e}")
+        return pd.DataFrame()
+
+def get_top5_cities_for_sector(sector: str) -> List[ScoreEntry]:
+    """Belirli bir sektör için top5 şehirleri CSV'den çeker"""
+    try:
+        df = load_top5_iller_per_sektor()
+        if df.empty:
+            print(f"CSV dosyası boş veya yüklenemedi")
+            return []
+        
+        # Sektör adını normalize et (büyük/küçük harf duyarsız)
+        # Önce tam eşleşme dene
+        sector_data = df[df['Sektor'] == sector]
+        
+        # Tam eşleşme yoksa kısmi eşleşme dene
+        if sector_data.empty:
+            sector_data = df[df['Sektor'].str.contains(sector, case=False, na=False)]
+        
+        if sector_data.empty:
+            print(f"'{sector}' sektörü CSV'de bulunamadı")
+            return []
+        
+        # Top5'i al ve ScoreEntry listesine dönüştür
+        top5_entries = []
+        for _, row in sector_data.head(5).iterrows():
+            try:
+                top5_entries.append(
+                    ScoreEntry(
+                        name=str(row['Sehir']),
+                        score=round(float(row['Skor']), 1),
+                        reasons=[f"{row['Sehir']} bu sektörde {row['Skor']:.1f} puan ile {row['Sira']}. sırada"]
+                    )
+                )
+            except Exception as e:
+                print(f"Satır işlenirken hata: {e}, satır: {row}")
+                continue
+        
+        print(f"'{sector}' sektörü için {len(top5_entries)} şehir bulundu")
+        return top5_entries
+        
+    except Exception as e:
+        print(f"get_top5_cities_for_sector hatası: {e}")
+        return []
+
+def get_top5_sectors_for_city(city: str) -> List[ScoreEntry]:
+    """Belirli bir şehir için top5 sektörleri CSV'den çeker"""
+    try:
+        df = load_top5_sektorler_per_il()
+        if df.empty:
+            print(f"CSV dosyası boş veya yüklenemedi")
+            return []
+        
+        # Şehir adını normalize et (büyük/küçük harf duyarsız)
+        # Önce tam eşleşme dene
+        city_data = df[df['Sehir'] == city]
+        
+        # Tam eşleşme yoksa kısmi eşleşme dene
+        if city_data.empty:
+            city_data = df[df['Sehir'].str.contains(city, case=False, na=False)]
+        
+        if city_data.empty:
+            print(f"'{city}' şehri CSV'de bulunamadı")
+            return []
+        
+        # Top5'i al ve ScoreEntry listesine dönüştür
+        top5_entries = []
+        for _, row in city_data.head(5).iterrows():
+            try:
+                top5_entries.append(
+                    ScoreEntry(
+                        name=str(row['Sektor']),
+                        score=round(float(row['Skor']), 1),
+                        reasons=[f"{row['Sektor']} sektöründe {row['Skor']:.1f} puan ile {row['Sira']}. sırada"]
+                    )
+                )
+            except Exception as e:
+                print(f"Satır işlenirken hata: {e}, satır: {row}")
+                continue
+        
+        print(f"'{city}' şehri için {len(top5_entries)} sektör bulundu")
+        return top5_entries
+        
+    except Exception as e:
+        print(f"get_top5_sectors_for_city hatası: {e}")
+        return []
 
 # ---- Yaşam döngüsü ---------------------------------------------------------
 

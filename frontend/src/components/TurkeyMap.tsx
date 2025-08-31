@@ -7,10 +7,33 @@ interface CityData {
   coordinates: [number, number];
 }
 
+interface SectorData {
+  name: string;
+  score: number;
+  reasons: string[];
+}
+
 const TurkeyMap: React.FC = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const currentPopup = useRef<mapboxgl.Popup | null>(null);
+
+  // Şehir için sektör verilerini backend'den al
+  const getSectorsForCity = async (cityName: string): Promise<SectorData[]> => {
+    try {
+      // Şehir ismini URL'de encode et
+      const encodedCityName = encodeURIComponent(cityName);
+      const response = await fetch(`http://localhost:8000/api/mod2?city=${encodedCityName}&topn=5`);
+      if (!response.ok) {
+        throw new Error('Veri alınamadı');
+      }
+      const data = await response.json();
+      return data.top5 || [];
+    } catch (error) {
+      console.error('Sektör verisi alınırken hata:', error);
+      return [];
+    }
+  };
 
   // Türkiye illeri ve koordinatları
   const cities: CityData[] = [
@@ -132,7 +155,7 @@ const TurkeyMap: React.FC = () => {
           .addTo(map.current!);
 
         // Pin'e tıklama olayı ekle
-        marker.getElement().addEventListener('click', () => {
+        marker.getElement().addEventListener('click', async () => {
           console.log(`${city.name} tıklandı!`);
           
           // Önceki popup'ı kapat
@@ -141,20 +164,56 @@ const TurkeyMap: React.FC = () => {
             currentPopup.current = null;
           }
 
+          // Şehir için sektör verilerini backend'den al
+          const citySectors = await getSectorsForCity(city.name);
+          
+          // Popup HTML'ini oluştur
+          let popupHTML = `
+            <div style="padding: 15px; min-width: 250px;">
+              <h3 style="margin: 0 0 15px 0; color: #4ecdc4; font-size: 18px; font-weight: bold; text-align: center;">
+                ${city.name}
+              </h3>
+              <h4 style="margin: 0 0 10px 0; color: #333; font-size: 14px; font-weight: bold;">
+                🏆 En İyi 5 Sektör
+              </h4>
+          `;
+
+          if (citySectors.length > 0) {
+            citySectors.forEach((sector: SectorData, index: number) => {
+              const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '🏅';
+              popupHTML += `
+                <div style="margin: 8px 0; padding: 8px; background: #f8f9fa; border-radius: 6px; border-left: 3px solid #4ecdc4;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 16px;">${medal}</span>
+                    <span style="font-weight: bold; color: #333;">${sector.name}</span>
+                    <span style="font-weight: bold; color: #4ecdc4; font-size: 12px;">${sector.score.toFixed(1)}</span>
+                  </div>
+                  ${sector.reasons && sector.reasons.length > 0 ? `
+                    <div style="margin-top: 5px; font-size: 11px; color: #666; font-style: italic;">
+                      ${sector.reasons[0]}
+                    </div>
+                  ` : ''}
+                </div>
+              `;
+            });
+          } else {
+            popupHTML += `
+              <div style="text-align: center; color: #666; font-style: italic; padding: 20px 0;">
+                Bu şehir için sektör verisi bulunamadı
+              </div>
+            `;
+          }
+
+          popupHTML += '</div>';
+
           // Yeni popup oluştur
           const newPopup = new mapboxgl.Popup({ 
             closeButton: true,
             closeOnClick: false,
-            maxWidth: '200px'
+            maxWidth: '300px'
           })
             .setLngLat(city.coordinates)
-            .setHTML(`
-              <div style="padding: 10px; min-width: 150px;">
-                <h3 style="margin: 0; color: #4ecdc4; font-size: 16px; font-weight: bold;">
-                  ${city.name}
-                </h3>
-              </div>
-            `);
+            .setHTML(popupHTML);
 
           // Popup'ı haritaya ekle
           newPopup.addTo(map.current!);
