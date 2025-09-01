@@ -1,104 +1,160 @@
-# ECOMINDS - Teknofest 2025
+# 🌍 ECOMINDS - Yatırım Karar Destek Sistemi
 
-Eco-friendly business scoring API - İl ve sektör bazlı karar destek sistemi.
+Bu proje, Türkiye'nin 81 ili ve 20 farklı sektör için yatırım karar destek analizi sağlayan bir web uygulamasıdır.
 
-## Proje Açıklaması
-
-ECOMINDS, 81 ili 14 normalize gösterge ile 20 sektör açısından sayısal olarak puanlayan ve iki yönlü öneri veren bir karar destek sistemidir.
-
-### Özellikler
-
-- **Mod-1 (Sektör → İl)**: Bir sektör seçildiğinde 81 ilin o sektör için puanını hesaplar ve en iyi 5 ili sıralar
-- **Mod-2 (İl → Sektör)**: Bir il seçildiğinde 20 sektörün o il için puanını hesaplar ve en iyi 5 sektörü sıralar
-- **YÖN dönüşümü**: Her kriter için "Yüksek" veya "Düşük" avantaj kuralları
-- **Ağırlıklı skorlama**: Sektöre özel kriter ağırlıkları ile hesaplama
-
-## Teknolojiler
-
-- **Backend**: FastAPI (Python)
-- **Veri İşleme**: Pandas, NumPy
-- **Veri Kaynağı**: Excel dosyaları (TÜİK tabanlı göstergeler)
-
-## Kurulum
-
-```bash
-# Repository'yi klonla
-git clone https://github.com/yourusername/teknofest2025.git
-cd teknofest2025
-
-# Backend klasörüne geç
-cd backend
-
-# Sanal ortam oluştur
-python3 -m venv venv
-source venv/bin/activate  # Linux/Mac
-# venv\Scripts\activate  # Windows
-
-# Gerekli paketleri yükle
-pip install fastapi uvicorn pandas openpyxl numpy
-
-# Uygulamayı çalıştır
-uvicorn app.main:app --reload
-```
-
-## API Endpoints
-
-- `GET /` - Ana sayfa
-- `GET /health` - Sağlık kontrolü
-- `GET /sectors` - Sektör listesi
-- `GET /cities` - İl listesi
-- `POST /rank/cities-for-sector` - Sektör için il sıralaması
-- `POST /rank/sectors-for-city` - İl için sektör sıralaması
-- `GET /scores/matrix` - Tüm skor matrisi
-
-## Skor Hesaplama Mantığı
-
-1. **YÖN uygulaması**:
-   - Yüksek avantaj: `katkı = değer`
-   - Düşük avantaj: `katkı = 1 - değer`
-
-2. **Ağırlıklı toplam**:
-   - `Skor = Σ (katkı_kriter × ağırlık_kriter / 100)`
-
-3. **Final skor**: 0-1 arasından 0-100'e çevrilir
-
-## Örnek Kullanım
-
-```python
-# İzmir - Turizm skoru hesaplama
-score, contributions = calculate_sector_score_for_city("İzmir", "Turizm / Otelcilik", iller_df, sektor_df)
-print(f"İzmir - Turizm skoru: {score:.1f}/100")
-
-# Tüm iller için Turizm skorları
-all_scores = calculate_all_cities_for_sector("Turizm / Otelcilik", iller_df, sektor_df)
-```
-
-## Proje Yapısı
+## 📁 Proje Yapısı
 
 ```
 ECOMINDS/
-├── backend/
-│   ├── app/
-│   │   ├── main.py              # FastAPI giriş
-│   │   ├── config.py            # Dosya yolları, sabitler
-│   │   ├── loader.py            # Excel okuma & doğrulama
-│   │   ├── scoring.py           # YÖN dönüşümü + ağırlıklı skor motoru
-│   │   ├── explain.py           # Kısa gerekçe üretimi
-│   │   ├── schemas.py           # Pydantic modelleri
-│   │   ├── calculateScore.py    # Skor hesaplama modülü
-│   │   └── test_scoring.py      # Test modülü
-│   ├── data/
-│   │   ├── Iller_Normalize.xlsx
-│   │   └── Sektor_Kriter_Agirlik.xlsx
-│   └── venv/
-└── frontend/                    # (Gelecekte eklenecek)
+├── backend/                 # FastAPI Backend
+│   ├── app/                # Backend uygulama kodları
+│   ├── data/               # CSV veri dosyaları
+│   └── venv/               # Python virtual environment
+└── frontend/               # React Frontend
+    ├── src/                # Frontend kaynak kodları
+    └── public/             # Statik dosyalar
 ```
 
-## Lisans
+## 🚀 Kurulum ve Çalıştırma
 
-Bu proje Teknofest 2025 yarışması için geliştirilmiştir.
+### Ön Gereksinimler
 
-## İletişim
+- Python 3.9+
+- Node.js 16+
+- npm veya yarn
 
-- Proje: ECOMINDS
-- Yarışma: Teknofest 2025
+### 1️⃣ Backend Kurulumu
+
+```bash
+# Proje klasörüne git
+cd ECOMINDS/backend
+
+# Virtual environment'ı aktif et
+source venv/bin/activate
+
+# Gerekli paketler zaten yüklü, direkt başlat
+python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+✅ Backend http://localhost:8000 adresinde çalışacak
+
+### 2️⃣ Frontend Kurulumu
+
+Yeni bir terminal açın:
+
+```bash
+# Frontend klasörüne git
+cd ECOMINDS/frontend
+
+# Gerekli paketleri yükle (ilk kurulumda)
+npm install
+
+# Frontend'i başlat
+npm start
+```
+
+✅ Frontend http://localhost:3000 adresinde çalışacak
+
+## 🎯 Kullanım
+
+### Ana Özellikler
+
+1. **🗺️ Türkiye Haritası**: İllere tıklayarak o ilin en iyi 5 sektörünü görün
+2. **🔍 Sektör Analizi**: Bir sektör seçerek o sektörde en başarılı 5 şehri keşfedin
+
+### Sektörler
+
+- Turizm / Otelcilik
+- Teknoloji / Yazılım  
+- Sanayi / Üretim
+- Tarım ve Hayvancılık
+- Sağlık
+- Enerji
+- Konut & İnşaat
+- Lojistik
+- Perakende
+- Eğitim Kurumları
+- Gıda İşleme
+- Finans
+- Otomotiv
+- Mobilya
+- Telekom
+- Çevre / Atık
+- Sosyal Hizmetler
+- Kültür & Sanat
+- Ulaşım
+
+## 🔧 API Endpoints
+
+### Backend API'si
+
+- **Health Check**: `GET /health`
+- **Sektör → Şehirler**: `GET /api/mod1?sector={sector_name}&topn=5`
+- **Şehir → Sektörler**: `GET /api/mod2?city={city_name}&topn=5`
+
+### Örnek API Kullanımı
+
+```bash
+# Teknoloji sektöründe en iyi şehirler
+curl "http://localhost:8000/api/mod1?sector=Teknoloji%20%2F%20Yazılım&topn=5"
+
+# İstanbul'un en iyi sektörleri
+curl "http://localhost:8000/api/mod2?city=İstanbul&topn=5"
+```
+
+## 📊 Veri Kaynakları
+
+Proje aşağıdaki CSV dosyalarından veri okur:
+
+- `backend/data/Top5_Iller_Per_Sektor.csv` - Sektör bazlı en iyi şehirler
+- `backend/data/Top5_Sektorler_Per_Il.csv` - Şehir bazlı en iyi sektörler
+
+## 🛠️ Teknoloji Stack
+
+### Backend
+- **FastAPI** - Modern Python web framework
+- **Pandas** - Veri işleme
+- **Uvicorn** - ASGI server
+
+### Frontend
+- **React** - UI framework
+- **TypeScript** - Tip güvenliği
+- **Mapbox GL JS** - Harita görselleştirme
+
+## 🚨 Sorun Giderme
+
+### Backend Başlamazsa
+```bash
+# Virtual environment'ı kontrol et
+cd backend
+source venv/bin/activate
+which python  # /Users/.../ECOMINDS/backend/venv/bin/python olmalı
+```
+
+### Frontend Başlamazsa
+```bash
+# Node modules'u yeniden yükle
+cd frontend
+rm -rf node_modules package-lock.json
+npm install
+npm start
+```
+
+### Port Çakışması
+- Backend için: `--port 8001` ekleyin
+- Frontend için: farklı port otomatik önerilecek
+
+## 📱 Geliştirme Notları
+
+- Backend her değişiklikte otomatik yeniden başlar (`--reload`)
+- Frontend hot reload destekler
+- CSV dosyaları her API çağrısında yeniden okunur
+- CORS tüm originlere açık (geliştirme için)
+
+## 👥 Takım
+
+Bu proje yatırım karar destek sistemi için geliştirilmiştir.
+
+---
+
+**🎉 Başarılı kurulum için her iki servisin de (backend:8000, frontend:3000) çalıştığından emin olun!**

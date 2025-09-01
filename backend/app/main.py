@@ -164,12 +164,8 @@ def get_top5_sectors_for_city(city: str) -> List[ScoreEntry]:
 
 @app.on_event("startup")
 def _startup() -> None:
-    # İlk istekten önce veriyi yükleyip doğrula
-    try:
-        load_dataframes(force_reload=False)
-    except Exception as e:
-        # Yükleme hatası uygulamayı düşürmesin; ilk istekte yine denenir
-        print(f"[WARN] Veri yükleme başlangıçta başarısız: {e}")
+    # CSV dosyalarını kullandığımız için Excel yükleme yapmıyoruz
+    print("[INFO] CSV tabanlı API hazır - Excel dosyası yüklenmedi")
 
 # ---- Yardımcılar -----------------------------------------------------------
 
@@ -185,56 +181,46 @@ def health() -> HealthResponse:
 @app.post("/api/reload", tags=["system"])
 def reload_data() -> Dict[str, str]:
     """
-    Excel dosyaları güncellendiğinde cache'i sıfırlamak için.
+    CSV dosyaları güncellendiğinde yeniden yüklemek için.
     """
     try:
-        invalidate_cache()
-        load_dataframes(force_reload=True)
-        return {"status": "ok", "message": "Veri yeniden yüklendi."}
+        # CSV dosyaları her istekte yeniden yüklendiği için cache temizlemeye gerek yok
+        return {"status": "ok", "message": "CSV dosyaları her istekte yeniden okunuyor."}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Yeniden yükleme hatası: {e}")
 
 @app.get("/api/mod1", response_model=Mod1Response, tags=["scoring"])
 def mod1_sector_to_cities(
-    sector: str = Query(..., description="Sektör adı (ör. 'Turizm')"),
+    sector: str = Query(..., description="Sektör adı (ör. 'Turizm / Otelcilik')"),
     topn: int = Query(5, ge=1, le=20, description="Top-N il sayısı"),
 ):
     """
-    Mod-1: Seçili sektör için 81 ilin puanlarını hesapla, Top-N liste ve kısa gerekçelerle döndür.
+    Mod-1: Seçili sektör için CSV'den top şehirleri getir.
     """
     try:
-        scores_by_city, legend = score_all_cities(sector)
-    except KeyError as ke:
-        raise HTTPException(status_code=404, detail=str(ke))
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Hesaplama hatası: {e}")
-
-    # Top-N
-    top_pairs = sort_top_n(scores_by_city, n=topn)
-
-    top_entries: List[ScoreEntry] = []
-    for city, _score in top_pairs:
-        # Her Top-N satırı için katkılardan gerekçe üret
-        try:
-            score_value, contribs = score_sector_for_city(city, sector, return_contributions=True)
-        except KeyError:
-            # City/sector bulunamadıysa atla (olası değil)
-            continue
-        reasons = build_reasons_from_contributions(contribs, top_k_pos=2, include_risk=True)
-        top_entries.append(
-            ScoreEntry(
-                name=city,
-                score=round(score_value, 1),
-                reasons=reasons,
-            )
+        # CSV'den direkt oku
+        top_entries = get_top5_cities_for_sector(sector)
+        
+        if not top_entries:
+            raise HTTPException(status_code=404, detail=f"'{sector}' sektörü için veri bulunamadı")
+        
+        # Sadece istenen sayıda döndür
+        top_entries = top_entries[:topn]
+        
+        # scoresByCity dictionary'sini oluştur (geriye uyumluluk için)
+        scores_by_city = {entry.name: entry.score for entry in top_entries}
+        
+        return Mod1Response(
+            sector=sector,
+            scoresByCity=scores_by_city,
+            top5=top_entries,
+            legend=None,  # CSV'den okurken legend gerekmiyor
         )
-
-    return Mod1Response(
-        sector=sector,
-        scoresByCity=_round_scores(scores_by_city, ndigits=1),
-        top5=top_entries,
-        legend=legend,
-    )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Veri okuma hatası: {e}")
 
 @app.get("/api/mod2", response_model=Mod2Response, tags=["scoring"])
 def mod2_city_to_sectors(
@@ -242,36 +228,29 @@ def mod2_city_to_sectors(
     topn: int = Query(5, ge=1, le=20, description="Top-N sektör sayısı"),
 ):
     """
-    Mod-2: Seçili il için 20 sektörün puanlarını hesapla, Top-N liste ve kısa gerekçelerle döndür.
+    Mod-2: Seçili il için CSV'den top sektörleri getir.
     """
     try:
-        scores_by_sector, legend = score_all_sectors(city)
-    except KeyError as ke:
-        raise HTTPException(status_code=404, detail=str(ke))
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Hesaplama hatası: {e}")
-
-    # Top-N
-    top_pairs = sort_top_n(scores_by_sector, n=topn)
-
-    top_entries: List[ScoreEntry] = []
-    for sector, _score in top_pairs:
-        try:
-            score_value, contribs = score_sector_for_city(city, sector, return_contributions=True)
-        except KeyError:
-            continue
-        reasons = build_reasons_from_contributions(contribs, top_k_pos=2, include_risk=True)
-        top_entries.append(
-            ScoreEntry(
-                name=sector,
-                score=round(score_value, 1),
-                reasons=reasons,
-            )
+        # CSV'den direkt oku
+        top_entries = get_top5_sectors_for_city(city)
+        
+        if not top_entries:
+            raise HTTPException(status_code=404, detail=f"'{city}' şehri için veri bulunamadı")
+        
+        # Sadece istenen sayıda döndür
+        top_entries = top_entries[:topn]
+        
+        # scoresBySector dictionary'sini oluştur (geriye uyumluluk için)
+        scores_by_sector = {entry.name: entry.score for entry in top_entries}
+        
+        return Mod2Response(
+            city=city,
+            scoresBySector=scores_by_sector,
+            top5=top_entries,
+            legend=None,  # CSV'den okurken legend gerekmiyor
         )
-
-    return Mod2Response(
-        city=city,
-        scoresBySector=_round_scores(scores_by_sector, ndigits=1),
-        top5=top_entries,
-        legend=legend,
-    )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Veri okuma hatası: {e}")

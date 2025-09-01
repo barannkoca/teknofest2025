@@ -169,11 +169,11 @@ const TurkeyMap: React.FC = () => {
           
           // Popup HTML'ini oluştur
           let popupHTML = `
-            <div style="padding: 15px; min-width: 250px;">
-              <h3 style="margin: 0 0 15px 0; color: #4ecdc4; font-size: 18px; font-weight: bold; text-align: center;">
+            <div style="padding: 10px; min-width: 200px; max-width: 220px;">
+              <h3 style="margin: 0 0 8px 0; color: #4ecdc4; font-size: 14px; font-weight: bold; text-align: center;">
                 ${city.name}
               </h3>
-              <h4 style="margin: 0 0 10px 0; color: #333; font-size: 14px; font-weight: bold;">
+              <h4 style="margin: 0 0 6px 0; color: #333; font-size: 11px; font-weight: bold;">
                 🏆 En İyi 5 Sektör
               </h4>
           `;
@@ -182,23 +182,18 @@ const TurkeyMap: React.FC = () => {
             citySectors.forEach((sector: SectorData, index: number) => {
               const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '🏅';
               popupHTML += `
-                <div style="margin: 8px 0; padding: 8px; background: #f8f9fa; border-radius: 6px; border-left: 3px solid #4ecdc4;">
-                  <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 16px;">${medal}</span>
-                    <span style="font-weight: bold; color: #333;">${sector.name}</span>
-                    <span style="font-weight: bold; color: #4ecdc4; font-size: 12px;">${sector.score.toFixed(1)}</span>
+                <div style="margin: 4px 0; padding: 5px; background: #f8f9fa; border-radius: 4px; border-left: 2px solid #4ecdc4;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 5px;">
+                    <span style="font-size: 12px; flex-shrink: 0;">${medal}</span>
+                    <span style="font-weight: bold; color: #333; font-size: 10px; flex: 1; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${sector.name}</span>
+                    <span style="font-weight: bold; color: #4ecdc4; font-size: 10px; flex-shrink: 0;">${sector.score.toFixed(1)}</span>
                   </div>
-                  ${sector.reasons && sector.reasons.length > 0 ? `
-                    <div style="margin-top: 5px; font-size: 11px; color: #666; font-style: italic;">
-                      ${sector.reasons[0]}
-                    </div>
-                  ` : ''}
                 </div>
               `;
             });
           } else {
             popupHTML += `
-              <div style="text-align: center; color: #666; font-style: italic; padding: 20px 0;">
+              <div style="text-align: center; color: #666; font-style: italic; padding: 10px 0; font-size: 10px;">
                 Bu şehir için sektör verisi bulunamadı
               </div>
             `;
@@ -210,7 +205,7 @@ const TurkeyMap: React.FC = () => {
           const newPopup = new mapboxgl.Popup({ 
             closeButton: true,
             closeOnClick: false,
-            maxWidth: '300px'
+            maxWidth: '240px'
           })
             .setLngLat(city.coordinates)
             .setHTML(popupHTML);
