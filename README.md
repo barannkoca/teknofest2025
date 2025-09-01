@@ -1,6 +1,6 @@
 # 🌍 ECOMINDS - Yatırım Karar Destek Sistemi
 
-Bu proje, Türkiye'nin 81 ili ve 20 farklı sektör için yatırım karar destek analizi sağlayan bir web uygulamasıdır.
+Bu proje, Türkiye'nin 81 ili ve 19 farklı sektör için yatırım karar destek analizi sağlayan bir web uygulamasıdır.
 
 ## 📁 Proje Yapısı
 
