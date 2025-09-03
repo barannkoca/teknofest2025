@@ -6,7 +6,7 @@ Mod 1 (Sektör → İl): Kullanıcı bir sektör seçer ve sistem o alanda yatı
 Mod 2 (İl → Sektör): Kullanıcı bir il seçer ve sistem o şehirde öne çıkan 5 yatırım sektörünü önerir.
 Her iki modda da sonuçlar yalnızca liste olarak değil; kısa gerekçeler ve Türkiye haritası üzerinde görsel gösterimler ile desteklenir.
 
-## 📁 Proje Yapısı
+## 📁 Proje Yapısı 
 
 ```
 ECOMINDS/
