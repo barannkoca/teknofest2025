@@ -1,10 +1,10 @@
 # 🌍 ECOMINDS - Yatırım Karar Destek Sistemi
 
-## Projemiz, Türkiye’nin 81 ilini resmi istatistiklerle analiz ederek yatırımcılara “Hangi ilde hangi sektöre yatırım yapılmalı?” sorusuna veriye dayalı ve görsel bir çözüm sunan akıllı bir karar destek sistemidir.
-## Sistem iki farklı modda çalışır:
-## Mod 1 (Sektör → İl): Kullanıcı bir sektör seçer ve sistem o alanda yatırım için en uygun 5 ili sıralar.
-## Mod 2 (İl → Sektör): Kullanıcı bir il seçer ve sistem o şehirde öne çıkan 5 yatırım sektörünü önerir.
-## Her iki modda da sonuçlar yalnızca liste olarak değil; kısa gerekçeler ve Türkiye haritası üzerinde görsel gösterimler ile desteklenir.
+### Projemiz, Türkiye’nin 81 ilini resmi istatistiklerle analiz ederek yatırımcılara “Hangi ilde hangi sektöre yatırım yapılmalı?” sorusuna veriye dayalı ve görsel bir çözüm sunan akıllı bir karar destek sistemidir.
+### Sistem iki farklı modda çalışır:
+- Mod 1 (Sektör → İl): Kullanıcı bir sektör seçer ve sistem o alanda yatırım için en uygun 5 ili sıralar.
+- Mod 2 (İl → Sektör): Kullanıcı bir il seçer ve sistem o şehirde öne çıkan 5 yatırım sektörünü önerir.
+### Her iki modda da sonuçlar yalnızca liste olarak değil; kısa gerekçeler ve Türkiye haritası üzerinde görsel gösterimler ile desteklenir.
 
 ## 📁 Proje Yapısı 
 
@@ -20,11 +20,11 @@ ECOMINDS/
 ```
 
 
-## Tüm verilerimizi TÜİK üzerinden elde ettik.
-## ÖNEMLİ: Tüm veri analizi,matematik,veri işleme,normalizasyon gibi işlemlerimizin hepsini excelden yaptık. (Pythondaki tüm fonksiyonlar, Excel'de matematiksel ve başka türlü işlemler kullanılarak yapılabildiği için Excel kullandık.)
-## TÜİK üzerinden çektiğimiz tablolardaki tüm verilerimize derin bir veri analizi ve matematiksel işlemler yaparak her ilin verisini karşılaştırmaya hazır hale getirdik. (Burada yeni veriler de elde ettik.)
-## Sonrasında iller arası adil bir kaşılaştırma yapabilmek amacıyla çıkan her değeri kendi ilinin nüfusuna böldük. Mesela Aydın ilinde 100 kişi olsun ve 100 hastane yatağı olsun, aynı zamanda İzmir ilinde 400 kişi olsun ama 300 hasta yatağı olsun dersek; bu durumda asta yatağı Aydın'da daha az olmasına rağmen İzmir'e yatırım yapmalıyız. Çünkü kişi başına daha az düşüyor.
-## Bu işlemlerden sonra tüm verilerimize normalizasyon işlemi uyguladık.
+### Tüm verilerimizi TÜİK üzerinden elde ettik.
+### ÖNEMLİ: Tüm veri analizi,matematik,veri işleme,normalizasyon gibi işlemlerimizin hepsini excelden yaptık. (Pythondaki tüm fonksiyonlar, Excel'de matematiksel ve başka türlü işlemler kullanılarak yapılabildiği için Excel kullandık.)
+### TÜİK üzerinden çektiğimiz tablolardaki tüm verilerimize derin bir veri analizi ve matematiksel işlemler yaparak her ilin verisini karşılaştırmaya hazır hale getirdik. (Burada yeni veriler de elde ettik.)
+### Sonrasında iller arası adil bir kaşılaştırma yapabilmek amacıyla çıkan her değeri kendi ilinin nüfusuna böldük. Mesela Aydın ilinde 100 kişi olsun ve 100 hastane yatağı olsun, aynı zamanda İzmir ilinde 400 kişi olsun ama 300 hasta yatağı olsun dersek; bu durumda asta yatağı Aydın'da daha az olmasına rağmen İzmir'e yatırım yapmalıyız. Çünkü kişi başına daha az düşüyor.
+### Bu işlemlerden sonra tüm verilerimize normalizasyon işlemi uyguladık.
 ### Kullandığımız TÜİK Tablolarının her birisinin isimleri şunlardır:
 - İkamet edilen il ve doğum yerine göre nüfus
 - İllere Göre Tarım Alanları
