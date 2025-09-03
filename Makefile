@@ -44,7 +44,7 @@ start-backend: ## 🔧 Sadece backend'i başlat
 	@echo "${GREEN}🐍 Backend başlatılıyor...${NC}"
 	cd backend && source venv/bin/activate && python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
-start-frontend: ## ⚛️ Sadece frontend'i başlat
+start-frontend: check-mapbox ## ⚛️ Sadece frontend'i başlat
 	@echo "${GREEN}⚛️  Frontend başlatılıyor...${NC}"
 	cd frontend && npm start
 
@@ -133,4 +133,15 @@ check-frontend:
 
 validate: check-backend check-frontend ## ✅ Proje yapısını doğrula
 	@echo "${GREEN}✅ Proje yapısı doğru${NC}"
+
+check-mapbox: ## 🔑 Mapbox token varlığını kontrol et
+	@echo "${BLUE}🔑 Mapbox token kontrol ediliyor...${NC}"
+	@if [ -f "frontend/.env" ] && grep -q "REACT_APP_MAPBOX_TOKEN" "frontend/.env"; then \
+		echo "${GREEN}✅ Mapbox token bulundu${NC}"; \
+	else \
+		echo "${RED}❌ Mapbox token bulunamadı!${NC}"; \
+		echo "${YELLOW}💡 frontend/.env dosyasında REACT_APP_MAPBOX_TOKEN=your_token tanımlayın${NC}"; \
+		echo "${YELLOW}📖 README.md'deki Mapbox Token Kurulumu bölümünü okuyun${NC}"; \
+		exit 1; \
+	fi
 

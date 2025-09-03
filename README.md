@@ -22,6 +22,22 @@ ECOMINDS/
 - Python 3.9+
 - Node.js 16+
 - npm veya yarn
+- **🗺️ Mapbox API Token** (Harita görselleştirme için)
+
+### 🔑 Mapbox Token Kurulumu
+
+Frontend'in harita özelliğini kullanabilmek için Mapbox token'ı gerekli:
+
+1. [Mapbox](https://www.mapbox.com/) sitesinden ücretsiz hesap oluşturun
+2. Access Token alın
+3. `frontend/` klasöründe `.env` dosyası oluşturun:
+
+```bash
+cd frontend
+echo "REACT_APP_MAPBOX_TOKEN=your_mapbox_token_here" > .env
+```
+
+**⚠️ Önemli:** `.env` dosyasını Git'e commit etmeyin (`.gitignore`'da olmalı)
 
 ### 🛠️ Makefile ile Kolay Kurulum (Önerilen)
 
@@ -36,6 +52,10 @@ make setup
 
 # 🚀 Hem backend hem frontend'i başlat (paralel)
 make start
+
+# 🔑 Mapbox token kontrolü
+make check-mapbox
+```
 
 # ⚡ Portları temizle ve başlat
 make quick-start
@@ -77,6 +97,7 @@ make reset
 | `make quick-start` | ⚡ Portları temizle ve başlat |
 | `make info` | ℹ️ Proje bilgileri |
 | `make validate` | ✅ Proje yapısını doğrula |
+| `make check-mapbox` | 🔑 Mapbox token varlığını kontrol et |
 
 ### 1️⃣ Manuel Backend Kurulumu
 
@@ -261,6 +282,7 @@ make test        # API'leri test et
 make clean       # Cache temizle
 make logs-backend # Backend loglarını izle
 make info        # Proje bilgilerini göster
+make check-mapbox # Mapbox token kontrolü
 ```
 
 ### 🆘 Acil Durum Komutları

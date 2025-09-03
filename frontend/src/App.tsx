@@ -22,7 +22,7 @@ function App() {
       <main className="App-main">
         <section className="hero-section">
           <h2>Eco-friendly Business Scoring API</h2>
-          <p>81 ili 14 normalize gösterge ile 20 sektör açısından sayısal olarak puanlayan ve iki yönlü öneri veren karar destek sistemi</p>
+          <p>81 ili 19 sektör açısından sayısal olarak puanlayan ve iki yönlü öneri veren karar destek sistemi</p>
         </section>
 
         <section className="map-section">
@@ -42,7 +42,7 @@ function App() {
           
           <div className="feature-card">
             <h3>🏙️ Mod-2: İl → Sektör</h3>
-            <p>Bir il seçildiğinde 20 sektörün o il için puanını hesaplar ve en iyi 5 sektörü sıralar</p>
+            <p>Bir il seçildiğinde 19 sektörün o il için puanını hesaplar ve en iyi 5 sektörü sıralar</p>
           </div>
           
         </section>
