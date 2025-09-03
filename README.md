@@ -23,7 +23,62 @@ ECOMINDS/
 - Node.js 16+
 - npm veya yarn
 
-### 1️⃣ Backend Kurulumu
+### 🛠️ Makefile ile Kolay Kurulum (Önerilen)
+
+Proje kök dizininde aşağıdaki komutları kullanabilirsiniz:
+
+```bash
+# 📋 Tüm komutları göster
+make help
+
+# 🔧 İlk kurulum - gerekli paketleri yükle
+make setup
+
+# 🚀 Hem backend hem frontend'i başlat (paralel)
+make start
+
+# ⚡ Portları temizle ve başlat
+make quick-start
+
+# 📊 Servislerin durumunu kontrol et
+make status
+
+# 🧪 API endpoint'lerini test et
+make test
+
+# ⏹️ Çalışan servisleri durdur
+make stop
+
+# 🧹 Geçici dosyaları temizle
+make clean
+
+# 🔄 Tam reset (node_modules'u da sil)
+make reset
+```
+
+### 📚 Detaylı Makefile Komutları
+
+| Komut | Açıklama |
+|-------|----------|
+| `make help` | 📋 Kullanılabilir komutları göster |
+| `make setup` | 🔧 İlk kurulum - gerekli paketleri yükle |
+| `make start` | 🚀 Hem backend hem frontend'i başlat (paralel) |
+| `make start-backend` | 🔧 Sadece backend'i başlat |
+| `make start-frontend` | ⚛️ Sadece frontend'i başlat |
+| `make dev` | 🛠️ Geliştirme modu (alias for start) |
+| `make stop` | ⏹️ Çalışan servisleri durdur |
+| `make test` | 🧪 API endpoint'lerini test et |
+| `make test-quick` | ⚡ Hızlı health check |
+| `make status` | 📊 Servislerin durumunu kontrol et |
+| `make clean` | 🧹 Geçici dosyaları temizle |
+| `make reset` | 🔄 Tam reset - node_modules'u da sil |
+| `make ports` | 🔍 Kullanılan portları göster |
+| `make kill-ports` | ⚔️ 8000 ve 3000 portlarındaki işlemleri öldür |
+| `make quick-start` | ⚡ Portları temizle ve başlat |
+| `make info` | ℹ️ Proje bilgileri |
+| `make validate` | ✅ Proje yapısını doğrula |
+
+### 1️⃣ Manuel Backend Kurulumu
 
 ```bash
 # Proje klasörüne git
@@ -38,7 +93,7 @@ python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ✅ Backend http://localhost:8000 adresinde çalışacak
 
-### 2️⃣ Frontend Kurulumu
+### 2️⃣ Manuel Frontend Kurulumu
 
 Yeni bir terminal açın:
 
@@ -123,12 +178,32 @@ Proje aşağıdaki CSV dosyalarından veri okur:
 
 ## 🚨 Sorun Giderme
 
+### 🛠️ Makefile ile Sorun Giderme (Önerilen)
+
+```bash
+# 📊 Servis durumunu kontrol et
+make status
+
+# ⚔️ Port çakışması varsa portları temizle
+make kill-ports
+
+# 🔄 Tam reset yap
+make reset
+make setup
+
+# ⚡ Portları temizle ve yeniden başlat
+make quick-start
+```
+
 ### Backend Başlamazsa
 ```bash
 # Virtual environment'ı kontrol et
 cd backend
 source venv/bin/activate
 which python  # /Users/.../ECOMINDS/backend/venv/bin/python olmalı
+
+# Veya Makefile ile:
+make start-backend
 ```
 
 ### Frontend Başlamazsa
@@ -138,11 +213,22 @@ cd frontend
 rm -rf node_modules package-lock.json
 npm install
 npm start
+
+# Veya Makefile ile:
+make reset
+make setup
+make start-frontend
 ```
 
 ### Port Çakışması
-- Backend için: `--port 8001` ekleyin
-- Frontend için: farklı port otomatik önerilecek
+```bash
+# Makefile ile portları temizle
+make kill-ports
+
+# Veya manuel olarak:
+# Backend için: --port 8001 ekleyin
+# Frontend için: farklı port otomatik önerilecek
+```
 
 ## 📱 Geliştirme Notları
 
@@ -155,6 +241,37 @@ npm start
 
 Bu proje yatırım karar destek sistemi için geliştirilmiştir.
 
+## 💡 Makefile Kullanım İpuçları
+
+### 🚀 Hızlı Başlangıç
+```bash
+# İlk kez çalıştırıyorsanız:
+make setup    # Paketleri yükle
+make start    # Uygulamayı başlat
+
+# Günlük kullanım:
+make start    # Uygulamayı başlat
+make stop     # Uygulamayı durdur
+make status   # Durumu kontrol et
+```
+
+### 🔧 Geliştirici Komutları
+```bash
+make test        # API'leri test et
+make clean       # Cache temizle
+make logs-backend # Backend loglarını izle
+make info        # Proje bilgilerini göster
+```
+
+### 🆘 Acil Durum Komutları
+```bash
+make kill-ports  # Port çakışması çöz
+make reset       # Tam temizlik
+make quick-start # Hızlı yeniden başlat
+```
+
 ---
 
 **🎉 Başarılı kurulum için her iki servisin de (backend:8000, frontend:3000) çalıştığından emin olun!**
+
+**💡 İpucu: `make help` komutu ile tüm kullanılabilir komutları görebilirsiniz!**
