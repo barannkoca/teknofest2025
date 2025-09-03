@@ -1,10 +1,10 @@
 # 🌍 ECOMINDS - Yatırım Karar Destek Sistemi
 
-##Projemiz, Türkiye’nin 81 ilini resmi istatistiklerle analiz ederek yatırımcılara “Hangi ilde hangi sektöre yatırım yapılmalı?” sorusuna veriye dayalı ve görsel bir çözüm sunan akıllı bir karar destek sistemidir.
-##Sistem iki farklı modda çalışır:
-##Mod 1 (Sektör → İl): Kullanıcı bir sektör seçer ve sistem o alanda yatırım için en uygun 5 ili sıralar.
-##Mod 2 (İl → Sektör): Kullanıcı bir il seçer ve sistem o şehirde öne çıkan 5 yatırım sektörünü önerir.
-##Her iki modda da sonuçlar yalnızca liste olarak değil; kısa gerekçeler ve Türkiye haritası üzerinde görsel gösterimler ile desteklenir.
+## Projemiz, Türkiye’nin 81 ilini resmi istatistiklerle analiz ederek yatırımcılara “Hangi ilde hangi sektöre yatırım yapılmalı?” sorusuna veriye dayalı ve görsel bir çözüm sunan akıllı bir karar destek sistemidir.
+## Sistem iki farklı modda çalışır:
+## Mod 1 (Sektör → İl): Kullanıcı bir sektör seçer ve sistem o alanda yatırım için en uygun 5 ili sıralar.
+## Mod 2 (İl → Sektör): Kullanıcı bir il seçer ve sistem o şehirde öne çıkan 5 yatırım sektörünü önerir.
+## Her iki modda da sonuçlar yalnızca liste olarak değil; kısa gerekçeler ve Türkiye haritası üzerinde görsel gösterimler ile desteklenir.
 
 ## 📁 Proje Yapısı 
 
