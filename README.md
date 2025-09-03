@@ -19,6 +19,35 @@ ECOMINDS/
     └── public/             # Statik dosyalar
 ```
 
+
+## Tüm verilerimizi TÜİK üzerinden elde ettik.
+## ÖNEMLİ: Tüm veri analizi,matematik,veri işleme,normalizasyon gibi işlemlerimizin hepsini excelden yaptık. (Pythondaki tüm fonksiyonlar, Excel'de matematiksel ve başka türlü işlemler kullanılarak yapılabildiği için Excel kullandık.)
+## TÜİK üzerinden çektiğimiz tablolardaki tüm verilerimize derin bir veri analizi ve matematiksel işlemler yaparak her ilin verisini karşılaştırmaya hazır hale getirdik. (Burada yeni veriler de elde ettik.)
+## Sonrasında iller arası adil bir kaşılaştırma yapabilmek amacıyla çıkan her değeri kendi ilinin nüfusuna böldük. Mesela Aydın ilinde 100 kişi olsun ve 100 hastane yatağı olsun, aynı zamanda İzmir ilinde 400 kişi olsun ama 300 hasta yatağı olsun dersek; bu durumda asta yatağı Aydın'da daha az olmasına rağmen İzmir'e yatırım yapmalıyız. Çünkü kişi başına daha az düşüyor.
+## Bu işlemlerden sonra tüm verilerimize normalizasyon işlemi uyguladık.
+### Kullandığımız TÜİK Tablolarının her birisinin isimleri şunlardır:
+- İkamet edilen il ve doğum yerine göre nüfus
+- İllere Göre Tarım Alanları
+- İllere Göre İhracat
+- İllere Göre İthalat
+- Sağlık Personeli Sayılarının İlere göre Dağılımı
+- İlere Göre Belediye Hizmetlerinden Hasta ve Yoksullara Yardım, Yeşil Alanların Miktarı ve Engellere Yönelik Düzenleme Hizmetlerinden Memnuniyet
+- Göç etme nedeni ve cinsiyete göre iller arası göç eden nüfus ve oranı
+- Hastane Sayılarının İllere Göre Dağılımı
+- İllere göre bitirilen eğitim durumu(6+yas)
+- Bitirilen Eğitim durumu ve cinsiyete göre nüfus_15+
+- İl düzeyinde istihdam oranı
+- İllere Göre Konut Satış Sayıları
+- İllere ve ikamet edilen konutta ısınma amacıyla en çok kullanılan ana yakıt türüne göre hanehalkı sayısı ve oranı
+- İllere Göre Belediye Hizmetlerinden Çöp ve Çevresel Atık Toplama, Kanalizasyon, Şebeke Suyu ve Toplu Taşıma Hizmetlerinden Memnuniyet
+- İllere ve Cinsiyete Göre Ortanca Yaş
+- İllere Göre Annenin Ortalama Yaşı
+- Göç etme nedenine göre illerin verdiği göç
+- Göç etme nedenine göre illerin aldığı göç
+- Göç etme nedenine göre iller arası göç eden nüfus ve oranı
+- İl düzeyinde işgücüne katılma oranı
+
+
 ## 🚀 Kurulum ve Çalıştırma
 
 ### Ön Gereksinimler
