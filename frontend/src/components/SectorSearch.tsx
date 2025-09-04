@@ -152,7 +152,8 @@ const SectorSearch: React.FC = () => {
     try {
       setIsLoading(true);
       const encodedSectorName = encodeURIComponent(sectorName);
-      const response = await fetch(`http://localhost:8000/api/mod1?sector=${encodedSectorName}&topn=5`);
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/mod1?sector=${encodedSectorName}&topn=5`);
       if (!response.ok) throw new Error('Veri alınamadı');
       const data = await response.json();
       return (data?.top5 ?? []) as CitySearchData[];
@@ -169,7 +170,8 @@ const SectorSearch: React.FC = () => {
     try {
       setCityIsLoading(true);
       const encodedCityName = encodeURIComponent(cityName);
-      const response = await fetch(`http://localhost:8000/api/mod2?city=${encodedCityName}&topn=5`);
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/mod2?city=${encodedCityName}&topn=5`);
       if (!response.ok) throw new Error('Veri alınamadı');
       const data = await response.json();
       return (data?.top5 ?? []) as SectorSearchData[];

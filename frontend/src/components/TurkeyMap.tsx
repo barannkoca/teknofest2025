@@ -23,7 +23,8 @@ const TurkeyMap: React.FC = () => {
     try {
       // Şehir ismini URL'de encode et
       const encodedCityName = encodeURIComponent(cityName);
-      const response = await fetch(`http://localhost:8000/api/mod2?city=${encodedCityName}&topn=5`);
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/mod2?city=${encodedCityName}&topn=5`);
       if (!response.ok) {
         throw new Error('Veri alınamadı');
       }
