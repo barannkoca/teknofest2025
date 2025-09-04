@@ -25,12 +25,30 @@ help: ## 📋 Kullanılabilir komutları göster
 	@echo "  make test      # API'leri test et"
 
 setup: ## 🔧 İlk kurulum - gerekli paketleri yükle
+	@echo "${GREEN}🔧 Backend kurulumu başlıyor...${NC}"
+	@echo "${BLUE}🐍 Python virtual environment oluşturuluyor...${NC}"
+	cd backend && python3 -m venv venv
+	@echo "${BLUE}📦 Backend paketleri yükleniyor...${NC}"
+	cd backend && source venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
 	@echo "${GREEN}📦 Frontend paketleri yükleniyor...${NC}"
 	cd frontend && npm install
 	@echo "${GREEN}✅ Kurulum tamamlandı!${NC}"
 	@echo "${YELLOW}💡 Şimdi 'make start' ile uygulamayı başlatabilirsin${NC}"
 
 install: setup ## 🔧 Alias for setup
+
+setup-backend: ## 🐍 Sadece backend kurulumu
+	@echo "${GREEN}🔧 Backend kurulumu başlıyor...${NC}"
+	@echo "${BLUE}🐍 Python virtual environment oluşturuluyor...${NC}"
+	cd backend && python3 -m venv venv
+	@echo "${BLUE}📦 Backend paketleri yükleniyor...${NC}"
+	cd backend && source venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
+	@echo "${GREEN}✅ Backend kurulumu tamamlandı!${NC}"
+
+setup-frontend: ## ⚛️ Sadece frontend kurulumu  
+	@echo "${GREEN}📦 Frontend paketleri yükleniyor...${NC}"
+	cd frontend && npm install
+	@echo "${GREEN}✅ Frontend kurulumu tamamlandı!${NC}"
 
 start: ## 🚀 Hem backend hem frontend'i başlat (paralel)
 	@echo "${GREEN}🚀 Backend ve Frontend başlatılıyor...${NC}"
@@ -92,9 +110,10 @@ clean: ## 🧹 Geçici dosyaları temizle
 	cd backend && find . -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
 	@echo "${GREEN}✅ Temizlik tamamlandı${NC}"
 
-reset: clean ## 🔄 Tam reset - node_modules'u da sil
+reset: clean ## 🔄 Tam reset - node_modules ve venv'i sil
 	@echo "${YELLOW}🔄 Tam reset başlıyor...${NC}"
 	cd frontend && rm -rf node_modules package-lock.json
+	cd backend && rm -rf venv
 	@echo "${GREEN}✅ Reset tamamlandı. 'make setup' ile yeniden kurulum yapın${NC}"
 
 ports: ## 🔍 Kullanılan portları göster
