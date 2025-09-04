@@ -1,5 +1,21 @@
 # 🌍 ECOMINDS - Yatırım Karar Destek Sistemi
 
+## Projeyi Direk Başlatmak
+### Komut satırını açıp şu kodları yazın:
+git clone https://github.com/barannkoca/teknofest2025.git
+### Komut satırına devamında şunu yazın:
+cd teknofest2025
+### Komut satırına devamında şunu yazın:
+cd frontend
+echo "REACT_APP_MAPBOX_TOKEN=pk.eyJ1IjoiYnJua2MiLCJhIjoiY21leDZ5NmZ5MHYyNDJpcjFta2gxb2d5ayJ9.sjwu4OXqKllaY4PFIuH2dw" > .env
+### Komut satırına devamında şunu yazın:
+cd ..
+### Komut satırına devamında şunu yazın:
+make setup
+### Komut satırına devamında şunu yazın:
+make start
+
+
 ------------
 ### Projemiz, Türkiye’nin 81 ilini resmi istatistiklerle analiz ederek yatırımcılara “Hangi ilde hangi sektöre yatırım yapılmalı?” sorusuna veriye dayalı ve görsel bir çözüm sunan akıllı bir karar destek sistemidir.
 ### Sistem iki farklı modda çalışır:
