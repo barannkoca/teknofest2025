@@ -7,6 +7,7 @@ git clone https://github.com/barannkoca/teknofest2025.git
 cd teknofest2025
 ### Komut satırına devamında şunu yazın:
 cd frontend
+### Komut satırına devamında şunu yazın:
 echo "REACT_APP_MAPBOX_TOKEN=pk.eyJ1IjoiYnJua2MiLCJhIjoiY21leDZ5NmZ5MHYyNDJpcjFta2gxb2d5ayJ9.sjwu4OXqKllaY4PFIuH2dw" > .env
 ### Komut satırına devamında şunu yazın:
 cd ..
